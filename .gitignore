@@ -1,0 +1,45 @@
+# Unity generated directories
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# IDE and generated project files
+.vscode/
+.idea/
+.vs/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Local artifact build directories
+.docx-build/
+.ppt-build/
+tmp/
+
+# Unity crash and profiling output
+sysinfo.txt
+crashlytics-build.properties
+mono_crash.*
+
+# Test runner output
+TestResults-*.xml
+

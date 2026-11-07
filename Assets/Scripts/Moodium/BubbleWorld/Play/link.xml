@@ -1,0 +1,8 @@
+<linker>
+  <assembly fullname="Assembly-CSharp">
+    <type fullname="Moodium.NatureWorld.WishChimeDocument" preserve="all" />
+    <type fullname="Moodium.NatureWorld.WishChimeRecord" preserve="all" />
+    <type fullname="Moodium.NatureWorld.WishPresetDocument" preserve="all" />
+    <type fullname="Moodium.NatureWorld.WishPreset" preserve="all" />
+  </assembly>
+</linker>

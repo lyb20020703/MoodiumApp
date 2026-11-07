@@ -1,0 +1,13 @@
+{
+  "name": "Moodium.Gestures.Tests",
+  "rootNamespace": "Moodium.Gestures.Tests",
+  "references": [
+    "Moodium.Gestures"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
