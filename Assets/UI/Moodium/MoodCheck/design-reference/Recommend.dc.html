@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>推荐卡</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.glass{position:relative;background:rgba(30,30,38,0.30);-webkit-backdrop-filter:blur(40px) saturate(170%);backdrop-filter:blur(40px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),0 40px 90px rgba(35,25,15,0.28),0 6px 18px rgba(35,25,15,0.12)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,255,255,0.8),rgba(255,255,255,0.1) 32%,rgba(255,255,255,0.04) 62%,rgba(255,255,255,0.42));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.chip{position:relative;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px)}
+.chip::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(150deg,rgba(255,255,255,0.65),rgba(255,255,255,0.08) 45%,rgba(255,255,255,0.3));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+button{font:inherit}
+</style>
+</helmet>
+<div style="position: relative; width: 1200px; height: 860px; overflow: hidden; background: #9C9186; font-family: -apple-system, 'SF Pro Text', Inter, 'PingFang SC', 'Noto Sans SC', sans-serif; color: rgba(255,255,255,0.96)">
+  <div aria-hidden="true" style="position: absolute; inset: 0; filter: blur(70px)">
+    <div style="position: absolute; left: -120px; top: -160px; width: 620px; height: 560px; border-radius: 50%; background: #F1E4CE"></div>
+    <div style="position: absolute; left: 820px; top: 480px; width: 460px; height: 460px; border-radius: 50%; background: #6E8A6C"></div>
+    <div style="position: absolute; left: -60px; top: 580px; width: 560px; height: 420px; border-radius: 50%; background: #A97F66"></div>
+  </div>
+
+  <section class="glass" aria-label="Moodi 推荐" style="position: absolute; left: 80px; top: 90px; width: 560px; box-sizing: border-box; border-radius: 48px; padding: 44px 44px 40px; display: flex; flex-direction: column">
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <span style="font-size: 15px; color: rgba(255,255,255,0.72)">Moodi 推荐</span>
+      <span class="chip" style="height: 34px; padding: 0 14px; border-radius: 17px; background: rgba(232,128,112,0.38); display: flex; align-items: center; gap: 6px; font-size: 14px">
+        <dc-import name="MoodIcon" mood="tense" size="16" hint-size="16px,16px"></dc-import>
+        现在：烦躁
+      </span>
+    </div>
+    <div style="margin-top: 18px; display: flex; align-items: center; gap: 16px">
+      <div style="flex: none; filter: drop-shadow(0 6px 10px rgba(40,20,90,0.22))"><dc-import name="MoodiFace" mood="calm" size="76" hint-size="76px,76px"></dc-import></div>
+      <h1 style="margin: 0; font-size: 44px; font-weight: 600; letter-spacing: 0.02em">自然世界</h1>
+    </div>
+    <p style="margin: 12px 0 0; font-size: 20px; line-height: 1.6; color: rgba(255,255,255,0.88)">先跟着袋子慢慢呼吸，让自己松下来。</p>
+
+    <div style="margin-top: 30px; padding: 18px; border-radius: 28px; background: rgba(255,255,255,0.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14); display: flex; align-items: center; gap: 18px">
+      <div role="img" aria-label="自然世界贴纸缩略图占位" style="flex: none; width: 104px; height: 104px; border-radius: 22px; border: 1.5px dashed rgba(255,255,255,0.45); background: rgba(140,226,200,0.18); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 12px; line-height: 1.4; color: rgba(255,255,255,0.8)">自然贴纸<br>缩略图</div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 18px; font-weight: 500">找到这张贴纸，贴在袋子上</span>
+        <span style="font-size: 14px; color: rgba(255,255,255,0.68)">贴好后看向它，就能进入</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; display: flex; align-items: center; justify-content: space-between">
+      <span style="font-size: 15px; color: rgba(255,255,255,0.70)">也想去另一个？完全可以</span>
+      <button type="button" style="height: 54px; padding: 0 30px; border-radius: 27px; border: 0; background: rgba(255,255,255,0.94); color: #1C1C22; font-size: 16px; font-weight: 500; box-shadow: 0 6px 18px rgba(0,0,0,0.18)">好，去找贴纸</button>
+    </div>
+  </section>
+
+  <div style="position: absolute; left: 740px; top: 150px; width: 380px; display: flex; flex-direction: column; align-items: center">
+    <span class="chip" style="height: 36px; padding: 0 16px; border-radius: 18px; background: rgba(255,255,255,0.22); display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L19 8.2l-3.8 3.3 1.1 5L12 14l-4.3 2.5 1.1-5L5 8.2l5.1-.6z"></path></svg>
+      Moodi 推荐
+    </span>
+    <button class="chip" type="button" style="margin-top: 12px; height: 56px; padding: 0 34px; border-radius: 28px; border: 0; background: rgba(30,30,38,0.34); color: #fff; font-size: 17px; font-weight: 500; box-shadow: 0 0 0 6px rgba(255,255,255,0.10), 0 14px 30px rgba(20,20,40,0.22)">进入世界</button>
+    <div role="img" aria-label="被识别的贴纸与感官袋示意" style="margin-top: 40px; width: 300px; height: 210px; border-radius: 40px; background: rgba(255,255,255,0.16); box-shadow: inset 0 2px 0 rgba(255,255,255,0.4), 0 20px 50px rgba(30,20,10,0.22); display: flex; align-items: center; justify-content: center">
+      <div style="width: 110px; height: 110px; border-radius: 22px; border: 1.5px dashed rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; font-size: 12px; color: rgba(255,255,255,0.85)">贴纸</div>
+    </div>
+    <p style="margin: 18px 0 0; font-size: 14px; color: rgba(255,255,255,0.78)">识别到推荐世界的贴纸时，入口上方出现标签并轻微呼吸</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ARTnGAME/Meshing 1.unity
+    guid: 670b0f696e7ad4e75b87811902b24108
+  m_configObjects:
+    UnityEditor.XR.VisionOS.VisionOSSettings: {fileID: 11400000, guid: ed0c737734acc4817aa14ed24445d18c, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.polyspatial.xr.xr_settings: {fileID: 11400000, guid: 735d4742ce8224ddaaf900a731936cbf, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: aa53e0e6c46da4121b58f6b386afe429, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 820dbfbee113246ce8cd15953c9d27aa, type: 2}
+  m_UseUCBPForAssetBundles: 0

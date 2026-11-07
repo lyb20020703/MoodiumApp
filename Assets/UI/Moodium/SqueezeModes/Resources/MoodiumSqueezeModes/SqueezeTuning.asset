@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbdf1e40b099417da90cbbcf78d223c, type: 3}
+  m_Name: SqueezeTuning
+  m_EditorClassIdentifier: 
+  RhythmHitClip: {fileID: 8300000, guid: 74ea4a2ad98acb241bdb9753be6cd8c4, type: 3}
+  RhythmHitVolume: 0.22
+  parameters:
+    Bpm: 89
+    BeatsPerSqueeze: 2
+    BeatOffset: 0
+    InputLatency: 0.05
+    Window: 0.22
+    AssistWindow: 0.34
+    Base: 0.6
+    Rhythm: 1.25
+    Strength: 0.3
+    ComboStep: 0.06
+    RushBonus: 2
+    SpamHard: 0.55
+    SpamHardMult: 0.25
+    SpamSoft: 0.85
+    SpamSoftMult: 0.6
+    ComboCap: 8
+    RushEvery: 8
+    AdaptMisses: 4
+    AdaptMin: 0.9
+    AdaptMax: 2.2
+    Rate: 0.5
+    Inhale: 4
+    FadeEnd: 6
+    BreathBonus: 5.5
+    QLo: 1.2
+    QOkLo: 3
+    QOkHi: 5.5
+    QHi: 8
+    ExhaleBonus: 3.5
+    ExhaleLo: 2
+    ExhaleOk: 5
+    Floor: 0.8
+    FloorMinGap: 1.2
+    FloorSpamMult: 0.2
+    EarlyComboBoost: 0

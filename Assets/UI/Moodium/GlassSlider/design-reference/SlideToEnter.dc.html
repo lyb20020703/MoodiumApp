@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>滑动进入世界</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.seg{position:relative;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="position: relative; width: 1600px; height: 1000px; overflow: hidden; background: #34333A; font-family: -apple-system, 'SF Pro Text', Inter, 'PingFang SC', 'Noto Sans SC', sans-serif; color: rgba(255,255,255,0.95)">
+  <div aria-hidden="true" style="position: absolute; inset: 0; filter: blur(60px)">
+    <div style="position: absolute; left: 420px; top: -120px; width: 760px; height: 520px; border-radius: 40px; background: #1C1C22"></div>
+    <div style="position: absolute; left: 120px; top: 360px; width: 520px; height: 360px; border-radius: 30px; background: #DADCE6"></div>
+    <div style="position: absolute; left: -100px; top: 700px; width: 1900px; height: 420px; border-radius: 50%; background: #9C6E48"></div>
+    <div style="position: absolute; left: 1220px; top: 120px; width: 420px; height: 420px; border-radius: 30px; background: #5A6E5A"></div>
+    <div style="position: absolute; left: 860px; top: 520px; width: 420px; height: 300px; border-radius: 50%; background: #4C5A3E"></div>
+  </div>
+
+  <div style="position: absolute; left: 60px; top: 48px; display: flex; align-items: center; gap: 14px">
+    <span style="font-size: 22px; font-weight: 600">拖动试试</span>
+    <span style="font-size: 14px; color: rgba(255,255,255,0.7)">拖过 90% 进入世界，提前松手会弹回</span>
+  </div>
+  <div style="position: absolute; right: 60px; top: 42px; display: flex; gap: 10px">
+    <button class="seg" type="button" onClick="{{toNature}}" style="height: 40px; padding: 0 18px; border-radius: 20px; border: 0; font-size: 15px; {{segNature}}">自然世界</button>
+    <button class="seg" type="button" onClick="{{toCandy}}" style="height: 40px; padding: 0 18px; border-radius: 20px; border: 0; font-size: 15px; {{segCandy}}">糖果世界</button>
+    <button class="seg" type="button" onClick="{{reset}}" style="height: 40px; padding: 0 18px; border-radius: 20px; border: 0; font-size: 15px; background: rgba(255,255,255,0.12); color: #fff">重置</button>
+  </div>
+
+  <div style="position: absolute; left: 420px; top: 150px; width: 760px; height: 185px">
+    <dc-import name="GlassSlider" world="{{world}}" progress="{{p}}" mode="{{mode}}" width="760" label="{{label}}" hint-size="760px,185px"></dc-import>
+    <div role="slider" aria-label="{{label}}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{pct}}" tabindex="0" onPointerDown="{{down}}" onPointerMove="{{move}}" onPointerUp="{{up}}" onPointerCancel="{{up}}" onPointerEnter="{{enter}}" onPointerLeave="{{leave}}" style="position: absolute; inset: 0; border-radius: 999px; touch-action: none; cursor: grab"></div>
+  </div>
+
+  <div style="position: absolute; left: 60px; top: 420px; width: 1480px; display: grid; grid-template-columns: 140px repeat(5, minmax(0, 1fr)); grid-auto-rows: 200px; gap: 16px 24px; align-items: center">
+    <span style="font-size: 18px; font-weight: 600">自然世界</span>
+    <sc-for list="{{nature}}" as="c" hint-placeholder-count="5">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+        <dc-import name="GlassSlider" world="nature" progress="{{c.p}}" mode="{{c.mode}}" width="240" label="进入自然世界" hint-size="240px,58px"></dc-import>
+        <span style="font-size: 15px; font-weight: 500">{{c.title}}</span>
+        <span style="margin-top: -12px; font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.7); text-align: center">{{c.desc}}</span>
+      </div>
+    </sc-for>
+    <span style="font-size: 18px; font-weight: 600">糖果世界</span>
+    <sc-for list="{{candy}}" as="c" hint-placeholder-count="5">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 18px">
+        <dc-import name="GlassSlider" world="candy" progress="{{c.p}}" mode="{{c.mode}}" width="240" label="进入糖果世界" hint-size="240px,58px"></dc-import>
+        <span style="font-size: 15px; font-weight: 500">{{c.title}}</span>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="position: absolute; left: 60px; top: 896px; right: 60px; display: flex; gap: 36px; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.78)">
+    <span>真机尺寸：0.28 × 0.068 m，滑钮直径 0.057 m</span>
+    <span>滑钮颜色跟随世界；轨道是透出房间的磨砂玻璃</span>
+    <span>静止时滑钮每 3 秒向右轻推一下，提示可以拖</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { p: 0, dragging: false, hovered: false, done: false, world: 'nature' };
+    this.raf = 0;
+  }
+  componentWillUnmount() { if (this.raf) cancelAnimationFrame(this.raf); }
+  progressFrom(e) {
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - r.left) * (760 / r.width);
+    const h = Math.round(760 * 0.243);
+    const knob = Math.round(h * 0.84);
+    const m = (h - knob) / 2;
+    const travel = 760 - 2 * m - knob;
+    return Math.max(0, Math.min(1, (x - m - knob / 2) / travel));
+  }
+  springBack(from) {
+    if (this.raf) cancelAnimationFrame(this.raf);
+    const start = performance.now();
+    const tick = (now) => {
+      const t = (now - start) / 1000;
+      if (t > 1.1) { this.setState({ p: 0 }); this.raf = 0; return; }
+      const p = Math.max(-0.03, from * Math.exp(-6.5 * t) * Math.cos(10 * t));
+      this.setState({ p: p });
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+  }
+  renderVals() {
+    const s = this.state;
+    const mode = s.done ? 'done' : s.dragging ? 'drag' : s.hovered ? 'hover' : 'idle';
+    const seg = (on) => on ? 'background: rgba(255,255,255,0.92); color: #1C1C22' : 'background: rgba(255,255,255,0.12); color: #fff';
+    const states = [
+      { p: 0, mode: 'idle', title: '静止', desc: '滑钮在左，右侧有 ››› 提示' },
+      { p: 0, mode: 'hover', title: '注视', desc: '轨道和滑钮外圈变亮' },
+      { p: 0.5, mode: 'drag', title: '拖到一半', desc: '滑钮放大，身后拖出彩色光带，文字渐隐' },
+      { p: 0.92, mode: 'drag', title: '接近终点', desc: '越过 90% 松手即进入' },
+      { p: 1, mode: 'done', title: '完成', desc: '整条亮起，箭头变成对勾' }
+    ];
+    return {
+      world: s.world,
+      label: s.world === 'candy' ? '进入糖果世界' : '进入自然世界',
+      p: Math.max(0, s.p),
+      pct: Math.round(Math.max(0, s.p) * 100),
+      mode: mode,
+      nature: states,
+      candy: states,
+      segNature: seg(s.world === 'nature'),
+      segCandy: seg(s.world === 'candy'),
+      toNature: () => this.setState({ world: 'nature' }),
+      toCandy: () => this.setState({ world: 'candy' }),
+      reset: () => { if (this.raf) cancelAnimationFrame(this.raf); this.raf = 0; this.setState({ p: 0, done: false, dragging: false }); },
+      enter: () => this.setState({ hovered: true }),
+      leave: () => this.setState({ hovered: false }),
+      down: (e) => {
+        if (this.state.done) return;
+        if (this.raf) { cancelAnimationFrame(this.raf); this.raf = 0; }
+        if (e.currentTarget.setPointerCapture) e.currentTarget.setPointerCapture(e.pointerId);
+        this.setState({ dragging: true, p: this.progressFrom(e) });
+      },
+      move: (e) => { if (this.state.dragging) this.setState({ p: this.progressFrom(e) }); },
+      up: () => {
+        if (!this.state.dragging) return;
+        const p = this.state.p;
+        if (p >= 0.9) { this.setState({ dragging: false, done: true, p: 1 }); }
+        else { this.setState({ dragging: false }); this.springBack(p); }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

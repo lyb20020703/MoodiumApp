@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>五种心情</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.well{position:relative;background:rgba(30,30,38,0.30);-webkit-backdrop-filter:blur(40px) saturate(170%);backdrop-filter:blur(40px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),0 30px 70px rgba(35,25,15,0.22)}
+.well::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,255,255,0.8),rgba(255,255,255,0.1) 32%,rgba(255,255,255,0.04) 62%,rgba(255,255,255,0.42));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+</style>
+</helmet>
+<div style="position: relative; width: 1480px; height: 560px; overflow: hidden; background: #9C9186; font-family: -apple-system, 'SF Pro Text', Inter, 'PingFang SC', 'Noto Sans SC', sans-serif; color: rgba(255,255,255,0.96)">
+  <div aria-hidden="true" style="position: absolute; inset: 0; filter: blur(70px)">
+    <div style="position: absolute; left: -80px; top: -160px; width: 620px; height: 480px; border-radius: 50%; background: #F1E4CE"></div>
+    <div style="position: absolute; left: 980px; top: 260px; width: 560px; height: 420px; border-radius: 50%; background: #6E8A6C"></div>
+    <div style="position: absolute; left: 420px; top: 360px; width: 480px; height: 300px; border-radius: 50%; background: #A97F66"></div>
+  </div>
+
+  <div style="position: absolute; inset: 0; padding: 56px 60px; box-sizing: border-box; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px">
+    <sc-for list="{{items}}" as="it" hint-placeholder-count="5">
+      <div class="well" style="border-radius: 36px; display: flex; flex-direction: column; align-items: center; padding: 28px 16px 26px">
+        <div style="position: relative; width: 220px; height: 220px; border-radius: 50%; overflow: hidden; background: rgba(255,255,255,0.05); box-shadow: inset 0 3px 12px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.35), 0 0 0 1px rgba(255,255,255,0.14)">
+          <div aria-hidden="true" style="position: absolute; inset: 0; {{it.tint}}"></div>
+          <div aria-hidden="true" style="position: absolute; left: 50%; top: 12px; bottom: 12px; width: 1px; background: rgba(255,255,255,0.18)"></div>
+          <div aria-hidden="true" style="position: absolute; top: 50%; left: 12px; right: 12px; height: 1px; background: rgba(255,255,255,0.18)"></div>
+          <div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.26)"></div>
+          <div style="position: absolute; width: 60px; height: 60px; transform: translate(-50%, -50%); {{it.pos}}">
+            <div aria-hidden="true" style="position: absolute; left: 50%; top: 52px; width: 36px; height: 8px; margin-left: -18px; border-radius: 50%; background: rgba(24,14,48,0.34); filter: blur(3px)"></div>
+            <div style="position: relative; filter: drop-shadow(0 4px 6px rgba(40,20,90,0.22))"><dc-import name="MoodiFace" mood="{{it.key}}" size="60" hint-size="60px,60px"></dc-import></div>
+          </div>
+        </div>
+        <h2 style="margin: 22px 0 0; font-size: 22px; font-weight: 600; letter-spacing: 0.02em">{{it.name}}</h2>
+        <p style="margin: 4px 0 0; font-size: 14px; color: rgba(255,255,255,0.74)">{{it.desc}}</p>
+        <p style="margin: 16px 0 0; height: 32px; padding: 0 14px; border-radius: 16px; background: rgba(255,255,255,0.14); display: flex; align-items: center; font-size: 13px; color: rgba(255,255,255,0.92)">推荐 · {{it.world}}</p>
+      </div>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1480,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const list = [
+      { key: 'happy', name: '开心', desc: '愉快、有活力', world: '糖果世界', tint: '255,200,120', x: 0.6, y: 0.6 },
+      { key: 'calm', name: '平静', desc: '放松、安稳', world: '自然世界', tint: '140,226,200', x: 0.6, y: -0.6 },
+      { key: 'neutral', name: '一般', desc: '说不上好坏', world: '自然世界', tint: '214,220,232', x: 0, y: 0 },
+      { key: 'low', name: '低落', desc: '有点累、提不起劲', world: '糖果世界', tint: '140,166,206', x: -0.6, y: -0.6 },
+      { key: 'tense', name: '烦躁', desc: '紧张、有压力', world: '自然世界', tint: '232,128,112', x: -0.6, y: 0.6 }
+    ];
+    return {
+      items: list.map(function (w) {
+        const r = Math.min(1, Math.hypot(w.x, w.y));
+        const left = 50 + w.x * 40;
+        const top = 50 - w.y * 40;
+        const g = (0.22 + 0.5 * r).toFixed(2);
+        const b = (0.10 + 0.14 * r).toFixed(2);
+        return {
+          key: w.key, name: w.name, desc: w.desc, world: w.world,
+          tint: 'background: radial-gradient(circle at ' + left + '% ' + top + '%, rgba(' + w.tint + ',' + g + ') 0%, rgba(' + w.tint + ',' + b + ') 55%, rgba(' + w.tint + ',' + (b * 0.6).toFixed(2) + ') 100%)',
+          pos: 'left: ' + left + '%; top: ' + top + '%'
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

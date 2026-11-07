@@ -1,0 +1,79 @@
+{
+  "name": "Candy-Nested",
+  "source_ply": "01_SourceModels/Candy_Layer2/b7dbd00c3878b09ecbf9d2f3e1851e7f.ply",
+  "panorama": "Assets/Resources/MoodiumBubbleWorld/Candy/Nested/panorama.png",
+  "convention": "Unity = T @ raw (column vectors); det(T) = -1 includes the right-handed -> left-handed flip; panorama unchanged, u = 0.5 + atan2(x, z)/2pi",
+  "T_rows": [
+    [
+      -0.159743,
+      0.153283,
+      -0.975185
+    ],
+    [
+      -0.684425,
+      0.694684,
+      0.221307
+    ],
+    [
+      -0.711368,
+      -0.702793,
+      0.00606
+    ]
+  ],
+  "row_transform_for_converter": [
+    -0.159743,
+    -0.684425,
+    -0.711368,
+    0.153283,
+    0.694684,
+    -0.702793,
+    -0.975185,
+    0.221307,
+    0.00606
+  ],
+  "up_in_raw_frame": [
+    -0.68442,
+    0.69468,
+    0.22131
+  ],
+  "score": 0.5848,
+  "second_best_score": 0.3771,
+  "sector_correlation": [
+    0.615,
+    0.514,
+    0.96,
+    0.599,
+    0.638,
+    0.464,
+    0.405,
+    0.502
+  ],
+  "ground_tilt_deg": 2.0,
+  "eye_height_above_ground_m": 0.56,
+  "exported_at": "2026-10-30T15:18:36.933618+00:00",
+  "source_sha256": "7ba615a13bf947f11887e235fa0f562439984da222e400822526dd0a13b4fa36",
+  "points_sha256": "bab41805de28f20a7fe3b07affe1d2719d56f57f393dd0211889baaa5bcf14ac",
+  "count": 500000,
+  "runtime_source_rotation": "identity",
+  "export_options": {
+    "footprint": "layer1",
+    "sampling": "eye",
+    "viewer_eye_height": 1.5,
+    "direction_balance": 0.5
+  },
+  "export_verification": {
+    "score": 0.5942761555263696,
+    "canonical_error_degrees": 0.12559825924913925,
+    "score_gap": 0.21739717735778857,
+    "passed": true,
+    "sampling": "fixed source-frame direction cells; original Gaussian opacity > .35"
+  },
+  "previous_export": {
+    "points_sha256": "5d0bc569ad631d1927023177069bcca2800a15b7707dad1b09f9bef3c5ed5ecd",
+    "exported_at": "2026-10-29T15:38:16.526499+00:00",
+    "export_options": {
+      "footprint": "legacy",
+      "sampling": "capture"
+    }
+  }
+}

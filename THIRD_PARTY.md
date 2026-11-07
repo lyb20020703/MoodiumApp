@@ -1,31 +1,15 @@
-# 第三方依赖与排除清单
+# 第三方来源与许可范围
 
-下表记录开发工程中的来源和发布处理。表内“未发布”表示本仓库不提供相应文件，不表示它在开发工程中未被使用。具体购买记录和再分发授权仍由项目维护者核对。
+本项目集成 Unity、URP、PolySpatial、AR Foundation 和 XR Hands 的空间渲染与输入能力。Unity 包、示例及素材各自适用原许可。
 
-| 来源 | 开发工程中的用途 | 本次发布处理 |
-|---|---|---|
-| Unity、URP、PolySpatial、AR Foundation、XR Hands | 渲染、空间网格、追踪、输入 | 保留包清单，通过官方渠道获取。Assets/Samples 副本未发布 |
-| Ivy Studio | 自然世界基础藤蔓生成、原生叶片资源 | 插件及其素材未发布。NatureIvySpatialGrowthController 直接依赖其 API |
-| InfiniGRASS | 部分藤蔓材质依赖的植物纹理 | 未发布 |
-| Animated Trees Package | 自然世界树木 | 未发布 |
-| Epic Toon FX | 粒子效果、部分音效与材质 | 未发布 |
-| FImpossible Creations / Bones Stimulator | 开发工程旧入口的骨骼效果组件 | 未发布 |
-| Vefects Slime VFX | Moodi 水光材质输入贴图和旧水球材质 | 原包、材质和纹理未发布。保留项目 Shader Graph 生成器源码 |
-| OccaSoftware Altos | 静态筛查未发现主项目直接引用 | 整个内嵌包未发布。原包许可证采用 Asset Store EULA |
-| AR PL / Make Me a Hanzi、EMS Felix | 心愿预设笔画的原始来源 | 笔画数据和素材未发布，未来加入时须恢复对应许可与来源声明 |
-| 字体、音乐、语音、视频、全景图、模型和点云 | 各体验环节内容 | 全部排除，待来源与授权逐项确认 |
+开发工程的第三方来源包括 Animated Trees Package（树木）、Epic Toon FX（特效、音效与材质）、FImpossible Creations / Bones Stimulator（旧入口骨骼效果）、Vefects Slime VFX（材质和水光输入贴图）、InfiniGRASS（部分植物资源）。这些资源不在项目 MIT 许可覆盖范围内。维护者需确保公开再分发和后续复用符合各自授权。
 
-## 排除的旧工程和导入内容
+自然藤蔓集成使用 Ivy Studio API。本仓库排除插件本体，缺省禁用该功能。项目集成代码保留为可选路径。插件来源名称和代码注释保留。
 
-- Assets/_Game，包括 P00_SJTU130 章节、旧点云、旧交互模块、水球预制体和展品素材。
-- Assets/ARTnGAME 中的完整插件、演示场景、导出模型与 Common Tools。
-- Assets/Samples、TutorialInfo 和第三方示例工程内容。
-- Chocolate shell、exported_textures、Blender 备份、预览截图及安装用 unitypackage。
-- 完整开发过程记录、聊天交接包、构建输出、缓存和本地路径信息。
-- unity-mcp、Collab Proxy、IDE 集成、Multiplayer Center、Visual Scripting 与 AI Navigation 的显式包条目。它们未被视为本源码发布版的必要依赖。
+心愿预设笔画使用 Make Me a Hanzi / Arphic 与 EMS Felix 相关来源，现有声明见 Assets/ThirdPartyNotices。字体和其他附带许可应一并保留。
 
-## 分发与历史范围
+本次补齐场景与素材，经用户确认纳入发布范围。该确认不是第三方权利人的许可证明；现有资源的完整购买记录和再分发许可未在本次技术筛查中逐一验证。
 
-Unity Asset Store EULA 的应用内嵌分发授权不能自动推定为公开插件源码或原始素材的授权。核对依据为 https://unity.com/legal/as-terms 的第 2.2 节，以及每个资源包的具体许可。
+已清理的内容包括 Altos 内嵌包、WallGEN、ARTnGAME Common Tools、InfiniGRASS 插件脚本、Ivy Studio 本体、安装用 unitypackage 及明确的插件演示目录。部分旧工程资源可能仍被预制体或样例引用，现阶段保守保留，以供进一步依赖验证。
 
-本次源码发布采用独立 Git 历史。原 Moodium 仓库的既有文件和历史没有被本次操作清理，仍需要单独处理。排除第三方文件不改变项目已经使用过这些技术和素材的事实。
+Unity Asset Store 许可参考 https://unity.com/legal/as-terms。应用内使用权限与原始资源的公开再分发权限需要分别核对。

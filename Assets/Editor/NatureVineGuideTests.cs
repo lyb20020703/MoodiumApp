@@ -1,3 +1,4 @@
+#if MOODIUM_IVY_STUDIO
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -234,3 +235,5 @@ public sealed class NatureVineGuideTests
         Assert.That(controller.GuideSpot, Is.Null, "walking into a door world removes it at once");
     }
 }
+
+#endif

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="272" viewBox="0 0 1120 272">
+<defs>
+<linearGradient id="rim" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.98"/><stop offset="0.38" stop-color="#fff" stop-opacity="0.2"/>
+<stop offset="0.62" stop-color="#fff" stop-opacity="0.08"/><stop offset="1" stop-color="#fff" stop-opacity="0.6"/></linearGradient>
+<linearGradient id="hl" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#fff" stop-opacity="0.5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect x="3" y="3" width="1114" height="266" rx="133.0" fill="none" stroke="url(#rim)" stroke-width="5"/>
+<rect x="78.4" y="16.32" width="963.1999999999999" height="92.48" rx="46.24" fill="url(#hl)"/></svg>

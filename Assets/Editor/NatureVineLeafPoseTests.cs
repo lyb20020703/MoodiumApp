@@ -1,3 +1,4 @@
+#if MOODIUM_IVY_STUDIO
 using System.IO;
 using Moodium.NatureWorld;
 using NUnit.Framework;
@@ -100,3 +101,5 @@ public sealed class NatureVineLeafPoseTests
         Assert.That(reveal, Does.Contain("NatureVineLeafPose.Centre(native.stalk, native.rotation, native.size * unfold)"));
     }
 }
+
+#endif

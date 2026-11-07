@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a422f6520c4a4da38fae6461f88fbd38, type: 3}
+  m_Name: CandyWorldRewardTable
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - stage: 20
+    prefabs:
+    - {fileID: 100100000, guid: e12f4440a4e5d4357a5c5980bbcd1b9c, type: 3}
+    - {fileID: 100100000, guid: 496ec404e800f4e70b227621d657fffd, type: 3}
+    - {fileID: 100100000, guid: 0d8941e68908b4c4bb7c6fd996a0a95a, type: 3}
+    displayName: Candy Trio
+    sizeClass: 0
+    targetHeight: 0.25
+    miniatureScaleOverride: -1
+  - stage: 50
+    prefabs:
+    - {fileID: 100100000, guid: bf49babe221a94b1f871279c1cb0b68d, type: 3}
+    - {fileID: 100100000, guid: c20f1fdddf04f49c28dd4297f8e5200a, type: 3}
+    displayName: Cookie and Chocolate
+    sizeClass: 1
+    targetHeight: 0.5
+    miniatureScaleOverride: -1
+  - stage: 80
+    prefabs:
+    - {fileID: 100100000, guid: 70a7e18da0d674747a400b6c7c3a733e, type: 3}
+    displayName: Little Candy House
+    sizeClass: 1
+    targetHeight: 0.85
+    miniatureScaleOverride: -1
+  - stage: 100
+    prefabs:
+    - {fileID: 100100000, guid: 00110a095b7124a01be82fa4dba39dd8, type: 3}
+    displayName: Candy House
+    sizeClass: 2
+    targetHeight: 1.4
+    miniatureScaleOverride: -1

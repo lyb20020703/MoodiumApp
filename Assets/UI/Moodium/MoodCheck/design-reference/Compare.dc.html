@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>前后对比卡</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.glass{position:relative;background:rgba(30,30,38,0.30);-webkit-backdrop-filter:blur(40px) saturate(170%);backdrop-filter:blur(40px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),0 40px 90px rgba(35,25,15,0.28),0 6px 18px rgba(35,25,15,0.12)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,255,255,0.8),rgba(255,255,255,0.1) 32%,rgba(255,255,255,0.04) 62%,rgba(255,255,255,0.42));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.lens{position:relative;background:rgba(255,255,255,0.26);-webkit-backdrop-filter:blur(14px) saturate(180%);backdrop-filter:blur(14px) saturate(180%);box-shadow:inset 0 1px 1px rgba(255,255,255,0.9),0 8px 20px rgba(20,20,40,0.28)}
+.lens::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(145deg,rgba(255,255,255,0.95),rgba(255,255,255,0.15) 40%,rgba(255,255,255,0.05) 60%,rgba(255,255,255,0.6));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+button{font:inherit}
+</style>
+</helmet>
+<div style="position: relative; width: 1120px; height: 860px; overflow: hidden; background: #8F9A8C; font-family: -apple-system, 'SF Pro Text', Inter, 'PingFang SC', 'Noto Sans SC', sans-serif; color: rgba(255,255,255,0.96)">
+  <div aria-hidden="true" style="position: absolute; inset: 0; filter: blur(70px)">
+    <div style="position: absolute; left: -100px; top: -160px; width: 600px; height: 520px; border-radius: 50%; background: #EEE6D2"></div>
+    <div style="position: absolute; left: 700px; top: 420px; width: 520px; height: 480px; border-radius: 50%; background: #5F8463"></div>
+    <div style="position: absolute; left: 80px; top: 600px; width: 520px; height: 360px; border-radius: 50%; background: #9C8A72"></div>
+  </div>
+
+  <section class="glass" aria-label="这一次的心情变化" style="position: absolute; left: 160px; top: 80px; width: 800px; height: 700px; box-sizing: border-box; border-radius: 48px; padding: 44px 52px 40px; display: flex; flex-direction: column">
+    <p style="margin: 0; font-size: 15px; color: rgba(255,255,255,0.72)">在自然世界待了一会儿之后</p>
+    <h1 style="margin: 6px 0 0; font-size: 30px; font-weight: 500">感觉轻松了一些呢</h1>
+
+    <div style="margin-top: 34px; display: flex; align-items: center; gap: 44px">
+      <div role="img" aria-label="心情从烦躁移动到平静" style="position: relative; flex: none; width: 300px; height: 300px; border-radius: 50%; overflow: hidden; background: rgba(255,255,255,0.05); box-shadow: inset 0 3px 12px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.35), 0 0 0 1px rgba(255,255,255,0.14)">
+        <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(circle at 74% 74%, rgba(140,226,200,0.6) 0%, rgba(140,226,200,0.2) 55%, rgba(232,128,112,0.16) 100%)"></div>
+        <div aria-hidden="true" style="position: absolute; left: 50%; top: 14px; bottom: 14px; width: 1px; background: rgba(255,255,255,0.18)"></div>
+        <div aria-hidden="true" style="position: absolute; top: 50%; left: 14px; right: 14px; height: 1px; background: rgba(255,255,255,0.18)"></div>
+        <svg aria-hidden="true" viewBox="0 0 100 100" style="position: absolute; inset: 0; width: 100%; height: 100%">
+          <path d="M28 28 C 34 58, 52 72, 72 72" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="0.8" stroke-dasharray="1.6 1.6" stroke-linecap="round"></path>
+        </svg>
+        <div style="position: absolute; left: 26%; top: 26%; width: 64px; height: 64px; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px dashed rgba(255,255,255,0.55); display: flex; align-items: center; justify-content: center">
+          <div style="opacity: 0.5"><dc-import name="MoodiFace" mood="tense" size="48" hint-size="48px,48px"></dc-import></div>
+        </div>
+        <div style="position: absolute; left: 74%; top: 74%; width: 76px; height: 76px; transform: translate(-50%, -50%)">
+          <div aria-hidden="true" style="position: absolute; left: 50%; top: 66px; width: 44px; height: 10px; margin-left: -22px; border-radius: 50%; background: rgba(24,14,48,0.34); filter: blur(4px)"></div>
+          <div style="position: relative; filter: drop-shadow(0 5px 8px rgba(40,20,90,0.22))"><dc-import name="MoodiFace" mood="calm" size="76" hint-size="76px,76px"></dc-import></div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 22px">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 13px; color: rgba(255,255,255,0.66)">进入前</span>
+            <span style="font-size: 26px; font-weight: 600">烦躁</span>
+          </div>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 16px"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <span style="font-size: 13px; color: rgba(255,255,255,0.66)">现在</span>
+            <span style="font-size: 26px; font-weight: 600">平静</span>
+          </div>
+        </div>
+        <div style="height: 1px; background: rgba(255,255,255,0.16)"></div>
+        <div style="display: flex; gap: 32px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 13px; color: rgba(255,255,255,0.66)">停留</span>
+            <span style="font-size: 22px; font-weight: 500">6 分钟</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 13px; color: rgba(255,255,255,0.66)">慢慢捏了</span>
+            <span style="font-size: 22px; font-weight: 500">18 次</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: auto; display: flex; align-items: center; justify-content: space-between">
+      <span style="font-size: 15px; color: rgba(255,255,255,0.70)">这条记录只保存在这台设备上</span>
+      <button type="button" style="height: 54px; padding: 0 34px; border-radius: 27px; border: 0; background: rgba(255,255,255,0.94); color: #1C1C22; font-size: 16px; font-weight: 500; box-shadow: 0 6px 18px rgba(0,0,0,0.18)">继续</button>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1120,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>玩法教学卡</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;family=ZCOOL+KuaiLe&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.gc-glass{-webkit-backdrop-filter:blur(30px) saturate(150%);backdrop-filter:blur(30px) saturate(150%)}
+.gc-glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(165deg,rgba(255,255,255,0.9),rgba(255,255,255,0.16) 32%,rgba(255,255,255,0.05) 62%,rgba(255,255,255,0.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.gc-chip{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.gc-btn{font:inherit;cursor:pointer;border:0}
+</style>
+</helmet>
+<div class="gc-glass" style="position: relative; width: 520px; height: 660px; box-sizing: border-box; padding: 26px 32px 28px; border-radius: 48px; display: flex; flex-direction: column; gap: 20px; font-family: -apple-system, 'SF Pro Text', Inter, 'PingFang SC', 'Noto Sans SC', sans-serif; color: rgba(255,255,255,0.96); {{t.card}}">
+  <div style="display: flex; align-items: center; justify-content: space-between; height: 34px">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <span class="gc-chip" style="height: 32px; padding: 0 14px; border-radius: 16px; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; {{t.pill}}"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{t.accent}}"></span>{{step}}</span>
+      <span style="font-size: 14px; color: rgba(255,255,255,0.72)">{{kicker}}</span>
+    </div>
+    <button class="gc-btn gc-chip" type="button" onClick="{{skip}}" style="height: 34px; padding: 0 16px; border-radius: 17px; background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 500; {{skipStyle}}">{{skipLabel}}</button>
+  </div>
+
+  <div style="position: relative; flex: none; height: 272px; border-radius: 32px; overflow: hidden; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.5), 0 10px 30px rgba(10,6,20,0.35); {{t.stage}}">
+    <svg viewBox="0 -18 456 272" width="456" height="272" aria-hidden="true" style="position: absolute; inset: 0; font-family: -apple-system, Inter, 'PingFang SC', 'Noto Sans SC', sans-serif">
+      <defs>
+        <linearGradient id="gcBag-{{uid}}" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="{{t.bag0}}"></stop>
+          <stop offset="0.5" stop-color="{{t.bag1}}"></stop>
+          <stop offset="1" stop-color="{{t.bag2}}"></stop>
+        </linearGradient>
+        <radialGradient id="gcVol-{{uid}}" cx="0.45" cy="0.3" r="0.8">
+          <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.35"></stop>
+          <stop offset="0.6" stop-color="{{t.deep}}" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="{{t.deep}}" stop-opacity="0.32"></stop>
+        </radialGradient>
+        <linearGradient id="gcFill-{{uid}}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="{{t.accent}}" stop-opacity="0.38"></stop>
+          <stop offset="1" stop-color="{{t.accent}}" stop-opacity="0"></stop>
+        </linearGradient>
+        <linearGradient id="gcCurve-{{uid}}" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="{{t.bag2}}"></stop>
+          <stop offset="0.45" stop-color="{{t.accent}}"></stop>
+          <stop offset="1" stop-color="{{t.bag2}}"></stop>
+        </linearGradient>
+        <radialGradient id="gcGlow-{{uid}}">
+          <stop offset="0" stop-color="{{t.accent}}" stop-opacity="0.7"></stop>
+          <stop offset="1" stop-color="{{t.accent}}" stop-opacity="0"></stop>
+        </radialGradient>
+        <linearGradient id="gcSkin-{{uid}}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFFFFF"></stop>
+          <stop offset="0.6" stop-color="#F5F1FB"></stop>
+          <stop offset="1" stop-color="#DDD5EE"></stop>
+        </linearGradient>
+        <linearGradient id="gcWrist-{{uid}}" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#EAE4F4" stop-opacity="0.95"></stop>
+          <stop offset="1" stop-color="#EAE4F4" stop-opacity="0"></stop>
+        </linearGradient>
+        <filter id="gcGlowF-{{uid}}" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="3" result="b"></feGaussianBlur>
+          <feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+        </filter>
+        <filter id="gcBlur-{{uid}}" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="7"></feGaussianBlur>
+        </filter>
+        <filter id="gcBlur2-{{uid}}" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="2.4"></feGaussianBlur>
+        </filter>
+        <filter id="gcHaze-{{uid}}" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="20"></feGaussianBlur>
+        </filter>
+        <g id="gcHand-{{uid}}">
+          <rect x="198" y="100" width="15" height="38" rx="7.5" transform="rotate(-8 205 136)"></rect>
+          <rect x="213.8" y="93" width="15.4" height="45" rx="7.7"></rect>
+          <rect x="229.6" y="96" width="15" height="42" rx="7.5" transform="rotate(6 237 136)"></rect>
+          <rect x="245" y="108" width="13" height="32" rx="6.5" transform="rotate(14 251.5 138)"></rect>
+          <rect x="190" y="134" width="16" height="32" rx="8" transform="rotate(-34 198 164)"></rect>
+          <path d="M197 136 Q196 126 205 125 L255 125 Q264 126 263 137 L259 166 Q257 180 243 181 L214 181 Q200 180 199 166 Z"></path>
+        </g>
+        <g id="gcHandSet-{{uid}}">
+          <path d="M208 176 L251 176 L258 236 L201 236 Z" fill="#5A4A80" opacity="0.16" filter="url(#gcBlur-{{uid}})" transform="translate(5 4)"></path>
+          <use href="#gcHand-{{uid}}" fill="#5A4A80" opacity="0.26" transform="translate(4 7)" filter="url(#gcBlur2-{{uid}})"></use>
+          <path d="M207 172 L252 172 L258 236 L201 236 Z" fill="url(#gcWrist-{{uid}})"></path>
+          <use href="#gcHand-{{uid}}" fill="url(#gcSkin-{{uid}})"></use>
+          <path d="M213.4 114 L213 131 M229.4 110 L229.5 131 M245.2 116 L244.4 133" stroke="#9A8FB8" stroke-opacity="0.35" stroke-width="1.2" stroke-linecap="round"></path>
+          <ellipse cx="226" cy="140" rx="24" ry="7" fill="#FFFFFF" opacity="0.9" filter="url(#gcBlur2-{{uid}})"></ellipse>
+        </g>
+      </defs>
+
+      <g filter="url(#gcHaze-{{uid}})" opacity="0.9">
+        <circle cx="64" cy="40" r="62" fill="{{t.blob1}}"></circle>
+        <circle cx="404" cy="58" r="72" fill="{{t.blob2}}"></circle>
+        <circle cx="370" cy="214" r="62" fill="{{t.blob3}}"></circle>
+        <circle cx="70" cy="214" r="54" fill="{{t.blob4}}"></circle>
+      </g>
+
+      <sc-if value="{{isPress}}" hint-placeholder-val="{{ true }}">
+        <g fill="none">
+          <ellipse cx="228" cy="210" rx="206" ry="30" stroke="{{t.accent}}" stroke-opacity="0.3" stroke-width="1.6"></ellipse>
+          <ellipse cx="228" cy="208" rx="174" ry="22" stroke="{{t.accent}}" stroke-opacity="0.7" stroke-width="2.2" filter="url(#gcGlowF-{{uid}})"></ellipse>
+        </g>
+      </sc-if>
+      <sc-if value="{{isRhythm}}" hint-placeholder-val="{{ false }}">
+        <g fill="none">
+          <path d="{{g.ring3}}" stroke="{{t.accent}}" stroke-opacity="0.2" stroke-width="2"></path>
+          <path d="{{g.ring2}}" stroke="{{t.accent}}" stroke-opacity="0.4" stroke-width="2.4"></path>
+          <path d="{{g.ring1}}" stroke="{{t.accent}}" stroke-width="3.6" filter="url(#gcGlowF-{{uid}})"></path>
+        </g>
+      </sc-if>
+
+      <sc-if value="{{hasBag}}" hint-placeholder-val="{{ true }}">
+        <g>
+          <ellipse cx="{{g.cx}}" cy="{{g.shadowY}}" rx="{{g.shadowRx}}" ry="12" fill="{{t.deep}}" opacity="0.28" filter="url(#gcBlur-{{uid}})"></ellipse>
+          <path d="{{g.bag}}" fill="url(#gcBag-{{uid}})"></path>
+          <path d="{{g.bag}}" fill="url(#gcVol-{{uid}})"></path>
+          <path d="{{g.seam}}" fill="none" stroke="#FFFFFF" stroke-opacity="0.85" stroke-width="1.4" stroke-dasharray="2.5 4.5"></path>
+          <ellipse cx="{{g.hiX}}" cy="{{g.hiY}}" rx="{{g.hiRx}}" ry="{{g.hiRy}}" fill="#FFFFFF" opacity="0.85" filter="url(#gcBlur2-{{uid}})"></ellipse>
+          <ellipse cx="{{g.spX}}" cy="{{g.spY}}" rx="6" ry="3" fill="#FFFFFF"></ellipse>
+        </g>
+      </sc-if>
+
+      <sc-if value="{{isPress}}" hint-placeholder-val="{{ true }}">
+        <g>
+          <ellipse cx="162" cy="146" rx="52" ry="26" fill="{{t.deep}}" opacity="0.28" filter="url(#gcBlur-{{uid}})"></ellipse>
+          <ellipse cx="296" cy="146" rx="52" ry="26" fill="{{t.deep}}" opacity="0.28" filter="url(#gcBlur-{{uid}})"></ellipse>
+          <use href="#gcHandSet-{{uid}}" transform="matrix(-1 0 0 1 390 0)"></use>
+          <use href="#gcHandSet-{{uid}}" transform="translate(70 0)"></use>
+          <g filter="url(#gcGlowF-{{uid}})">
+            <circle cx="346" cy="100" r="3.4" fill="{{t.accent}}"></circle>
+            <circle cx="358" cy="86" r="2.6" fill="#FFFFFF"></circle>
+            <circle cx="369" cy="74" r="2.2" fill="{{t.accent}}"></circle>
+          </g>
+          <circle cx="402" cy="50" r="24" fill="rgba(255,255,255,0.8)" stroke="rgba(31,28,44,0.08)" stroke-width="5"></circle>
+          <circle cx="402" cy="50" r="24" fill="none" stroke="{{t.accent}}" stroke-width="5" stroke-linecap="round" stroke-dasharray="93.5 151" transform="rotate(-90 402 50)"></circle>
+          <circle cx="424.8" cy="42.6" r="4" fill="{{t.accent}}" stroke="#FFFFFF" stroke-width="1.6"></circle>
+          <circle cx="402" cy="74" r="4" fill="{{t.accent}}" stroke="#FFFFFF" stroke-width="1.6"></circle>
+          <circle cx="379.2" cy="42.6" r="4" fill="#FFFFFF" stroke="rgba(31,28,44,0.25)" stroke-width="1.5"></circle>
+          <circle cx="402" cy="26" r="4" fill="#FFFFFF" stroke="rgba(31,28,44,0.25)" stroke-width="1.5"></circle>
+          <path d="M394 48h16v10h-16zM393 44.5h18v3.5h-18zM402 44.5v13.5M402 44.5c-2-4-7-4-6-1.5s6 1.5 6 1.5c0 0 5 1 6-1.5s-4-2.5-6 1.5" fill="none" stroke="{{t.deep}}" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"></path>
+          <text x="26" y="82" font-size="{{hand.size}}" fill="{{t.deep}}" style="font-family: {{hand.font}}">{{note}}</text>
+          <path d="M70 90 C 86 104, 100 112, 118 116 M109 110 L118 116 L108 120" fill="none" stroke="{{t.deep}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+      </sc-if>
+
+      <sc-if value="{{isFree}}" hint-placeholder-val="{{ false }}">
+        <g>
+          <g filter="url(#gcGlowF-{{uid}})">
+            <circle cx="176" cy="122" r="15" fill="rgba(255,255,255,0.35)" stroke="#FFFFFF" stroke-width="2.6"></circle>
+            <circle cx="176" cy="122" r="4.5" fill="#FFFFFF"></circle>
+            <path d="{{g.raysA}}" stroke="{{t.deep}}" stroke-width="2.4" stroke-linecap="round"></path>
+            <circle cx="292" cy="142" r="10.5" fill="rgba(255,255,255,0.3)" stroke="#FFFFFF" stroke-width="2.2"></circle>
+            <circle cx="292" cy="142" r="3.2" fill="#FFFFFF"></circle>
+            <path d="{{g.raysB}}" stroke="{{t.deep}}" stroke-opacity="0.75" stroke-width="2" stroke-linecap="round"></path>
+            <circle cx="244" cy="104" r="6.5" fill="none" stroke="#FFFFFF" stroke-width="1.8"></circle>
+          </g>
+          <g filter="url(#gcGlowF-{{uid}})">
+            <path d="{{g.starA}}" fill="{{t.accent}}"></path>
+            <path d="{{g.starB}}" fill="#FFFFFF"></path>
+            <path d="{{g.starC}}" fill="{{t.accent}}"></path>
+            <circle cx="150" cy="62" r="2.4" fill="{{t.accent}}"></circle>
+            <circle cx="318" cy="58" r="2.6" fill="#FFFFFF"></circle>
+          </g>
+          <text x="318" y="40" font-size="{{hand.size}}" fill="{{t.deep}}" style="font-family: {{hand.font}}">{{note}}</text>
+          <path d="M346 48 C 352 62, 348 74, 336 84 M334 74 L336 84 L345 81" fill="none" stroke="{{t.deep}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+      </sc-if>
+
+      <sc-if value="{{isRhythm}}" hint-placeholder-val="{{ false }}">
+        <g>
+          <path d="{{g.target}}" fill="none" stroke="{{t.deep}}" stroke-opacity="0.75" stroke-width="2" stroke-dasharray="6 6"></path>
+          <g filter="url(#gcGlowF-{{uid}})">
+            <path d="{{g.starA}}" fill="#FFFFFF"></path>
+          </g>
+          <sc-for list="{{beads}}" as="b" hint-placeholder-count="8">
+            <circle cx="{{b.x}}" cy="22" r="5.5" fill="{{b.fill}}" stroke="{{b.stroke}}" stroke-width="1.5"></circle>
+          </sc-for>
+          <text x="330" y="228" font-size="{{hand.size}}" fill="{{t.deep}}" style="font-family: {{hand.font}}">{{note}}</text>
+          <path d="M352 210 C 356 200, 352 192, 344 186 M345 196 L344 186 L353 189" fill="none" stroke="{{t.deep}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+      </sc-if>
+
+      <sc-if value="{{isBreath}}" hint-placeholder-val="{{ false }}">
+        <g>
+          <path d="M40 172 C110 172 140 52 207 52 C290 52 330 172 416 172 L416 186 L40 186 Z" fill="url(#gcFill-{{uid}})"></path>
+          <path d="M40 172 C110 172 140 52 207 52 C290 52 330 172 416 172" fill="none" stroke="url(#gcCurve-{{uid}})" stroke-width="4.5" stroke-linecap="round" filter="url(#gcGlowF-{{uid}})"></path>
+          <path d="M40 172 C110 172 140 52 207 52 C290 52 330 172 416 172" fill="none" stroke="#FFFFFF" stroke-opacity="0.8" stroke-width="1.3" stroke-linecap="round"></path>
+          <line x1="207" y1="44" x2="207" y2="186" stroke="rgba(31,28,44,0.14)" stroke-width="1.2" stroke-dasharray="3 5"></line>
+          <g filter="url(#gcGlowF-{{uid}})">
+            <circle cx="96" cy="152" r="2.2" fill="{{t.accent}}" opacity="0.45"></circle>
+            <circle cx="118" cy="132" r="2.8" fill="{{t.accent}}" opacity="0.7"></circle>
+            <circle cx="136" cy="110" r="3.4" fill="#FFFFFF"></circle>
+          </g>
+          <circle cx="153" cy="92" r="22" fill="url(#gcGlow-{{uid}})"></circle>
+          <circle cx="153" cy="92" r="8" fill="#FFFFFF" stroke="{{t.accent}}" stroke-width="3"></circle>
+          <text x="30" y="112" font-size="{{hand.size}}" fill="{{t.deep}}" style="font-family: {{hand.font}}">{{noteIn}}</text>
+          <text x="318" y="84" font-size="{{hand.size}}" fill="{{t.deep}}" style="font-family: {{hand.font}}">{{noteOut}}</text>
+        </g>
+      </sc-if>
+    </svg>
+
+    <span class="gc-chip" style="position: absolute; left: 14px; top: 14px; height: 30px; padding: 0 12px; border-radius: 15px; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #3A3648; background: rgba(255,255,255,0.72); box-shadow: inset 0 1px 0 #FFFFFF, 0 4px 12px rgba(60,40,90,0.08)"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{t.accent}}"></span>{{chip}}</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <span style="font-size: 30px; line-height: 1.2; font-weight: 700; letter-spacing: 0.01em; color: #FFFFFF">{{title}}</span>
+    <span style="font-size: 17px; line-height: 1.5; color: rgba(255,255,255,0.78)">{{body}}</span>
+  </div>
+
+  <sc-if value="{{isMode}}" hint-placeholder-val="{{ false }}">
+    <div style="display: flex; align-items: center; gap: 16px">
+      <div style="display: flex; gap: 10px">
+        <sc-for list="{{modes}}" as="m" hint-placeholder-count="3">
+          <span style="width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; {{m.puck}}">
+            <sc-if value="{{m.free}}" hint-placeholder-val="{{ true }}">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="{{m.ink}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12.5V6.5a1.5 1.5 0 0 1 3 0V11M11 10.5V5a1.5 1.5 0 0 1 3 0v5.5M14 10.5V6.5a1.5 1.5 0 0 1 3 0v6.5c0 3.9-2.6 7-6.2 7-2.7 0-4.3-1.3-5.6-3.4L3.6 13.7a1.5 1.5 0 0 1 2.5-1.6L8 14.5"></path></svg>
+            </sc-if>
+            <sc-if value="{{m.rhythm}}" hint-placeholder-val="{{ false }}">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="{{m.ink}}" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke-dasharray="2.2 2.6"></circle><circle cx="12" cy="12" r="3.2" fill="{{m.ink}}" stroke="none"></circle></svg>
+            </sc-if>
+            <sc-if value="{{m.breath}}" hint-placeholder-val="{{ false }}">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="{{m.ink}}" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 10c2.2-3.2 4.4-3.2 6.6 0s4.4 3.2 6.6 0 3.3-2.4 4.8-1M3 15.5c2.2-3.2 4.4-3.2 6.6 0s4.4 3.2 6.6 0 3.3-2.4 4.8-1"></path></svg>
+            </sc-if>
+          </span>
+        </sc-for>
+      </div>
+      <span style="display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 14px; border-radius: 17px; font-size: 15px; font-weight: 600; {{t.recommend}}"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{t.accent}}"></span>{{recommend}}</span>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{isPress}}" hint-placeholder-val="{{ true }}">
+    <span style="display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; height: 34px; padding: 0 14px; border-radius: 17px; font-size: 15px; font-weight: 600; {{t.recommend}}"><span style="width: 7px; height: 7px; border-radius: 50%; background: {{t.accent}}"></span>{{gift}}</span>
+  </sc-if>
+
+  <div style="margin-top: auto; display: flex; flex-direction: column; gap: 14px">
+    <sc-if value="{{isMode}}" hint-placeholder-val="{{ false }}">
+      <span style="font-size: 13px; color: rgba(255,255,255,0.6)">{{switchHint}}</span>
+    </sc-if>
+    <div style="display: flex; align-items: center; justify-content: space-between; min-height: 54px">
+      <div style="display: flex; gap: 7px; align-items: center">
+        <sc-for list="{{dots}}" as="d" hint-placeholder-count="4">
+          <span style="height: 8px; border-radius: 4px; {{d.style}}"></span>
+        </sc-for>
+      </div>
+      <button class="gc-btn" type="button" onClick="{{next}}" style="height: 54px; padding: 0 10px 0 24px; border-radius: 27px; display: inline-flex; align-items: center; gap: 14px; font-size: 17px; font-weight: 600; color: #FFFFFF; {{buttonStyle}}">{{nextLabel}}<span style="width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.16)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"world":{"editor":"enum","options":["candy","nature"],"default":"candy"},"card":{"editor":"enum","options":["press","free","rhythm","breath"],"default":"press"},"lang":{"editor":"enum","options":["zh","en"],"default":"zh"},"onNext":{"editor":null},"onSkip":{"editor":null},"flat":{"editor":null},"hideControls":{"editor":null},"$preview":{"width":520,"height":660}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const world = this.props.world === 'nature' ? 'nature' : 'candy';
+    const en = this.props.lang === 'en';
+    const flat = this.props.flat === true || this.props.flat === 'true';
+    const hideControls = this.props.hideControls === true || this.props.hideControls === 'true';
+    const card = this.props.card ?? 'press';
+    const order = ['press', 'free', 'rhythm', 'breath'];
+    const i = Math.max(0, order.indexOf(card));
+    const T = world === 'candy'
+      ? { accent: '#F27DB6', deep: '#B84A8D', light: '#FFB8DD', deepRgb: '206,86,154', bag0: '#FFE6F2', bag1: '#F9B7D9', bag2: '#C9B6FF', rgb: '242,125,182',
+          wash: 'radial-gradient(120% 70% at 0% 0%, rgba(255,214,234,0.75), rgba(255,214,234,0) 60%), radial-gradient(100% 70% at 100% 100%, rgba(214,204,255,0.6), rgba(214,204,255,0) 60%)',
+          stage: 'linear-gradient(160deg, #FFF1F8 0%, #F3ECFF 55%, #FFF2E8 100%)',
+          blobs: ['#FFC6E0', '#D8CBFF', '#FFD9C2', '#CFE2FF'], button: '#3A2142' }
+      : { accent: '#55C47F', deep: '#2E8C55', light: '#A8EDBB', deepRgb: '46,150,90', bag0: '#E6F9EA', bag1: '#A8E3BC', bag2: '#97D8D4', rgb: '85,196,127',
+          wash: 'radial-gradient(120% 70% at 0% 0%, rgba(206,242,214,0.8), rgba(206,242,214,0) 60%), radial-gradient(100% 70% at 100% 100%, rgba(236,246,196,0.65), rgba(236,246,196,0) 60%)',
+          stage: 'linear-gradient(160deg, #EFFAF2 0%, #F4FAE4 55%, #E8F7F4 100%)',
+          blobs: ['#C3F0D0', '#E7F6BC', '#C0EBE6', '#DCF3C6'], button: '#1D3A29' };
+    const ZH = {
+      press: ['按一按感官袋', '双手按住袋子两侧，按下再松开，每一下都在给世界充能。'],
+      free: ['自由模式', '想怎么按就怎么按，每一下都算数。'],
+      rhythm: ['节奏模式', '光圈碰到虚线时，捏一下。'],
+      breath: ['呼吸模式', '按住慢慢吸气，松开慢慢呼气。'],
+      rec: { free: '心情平常时推荐', rhythm: '开心或低落时推荐', breath: '平静或紧张时推荐' },
+      chip: { press: '攒能量，换礼物', free: '随时都能按', rhythm: '连击 × 5', breath: '吸 4 秒 · 呼 5 秒' },
+      note: { press: '按下，再松开', free: '随心就好', rhythm: '跟上节拍' },
+      noteIn: '吸气', noteOut: '呼气',
+      kicker: world === 'candy' ? '糖果世界 · 怎么玩' : '自然世界 · 怎么玩',
+      gift: '能量到 20 / 50 / 80 / 100，各得一件礼物',
+      switchHint: '感官袋后方的三个按钮，指尖点一下即可切换',
+      skip: '跳过', next: '下一张', start: '开始按压'
+    };
+    const EN = {
+      press: ['Press the sensory bag', 'Place both hands on its sides, press, then let go. Every press charges the world.'],
+      free: ['Free mode', 'Press any way you like. Every press counts.'],
+      rhythm: ['Rhythm mode', 'Squeeze when the ring meets the dotted line.'],
+      breath: ['Breath mode', 'Hold to breathe in, release to breathe out.'],
+      rec: { free: 'Suggested when you feel okay', rhythm: 'Suggested when happy or low', breath: 'Suggested when calm or tense' },
+      chip: { press: 'Energy → gifts', free: 'Anytime', rhythm: 'Combo × 5', breath: 'In 4 s · Out 5 s' },
+      note: { press: 'press & release', free: 'anything goes', rhythm: 'feel the beat' },
+      noteIn: 'breathe in', noteOut: 'breathe out',
+      kicker: world === 'candy' ? 'Candy World · How to play' : 'Nature World · How to play',
+      gift: 'A gift at 20 / 50 / 80 / 100 energy',
+      switchHint: 'Tap a button behind the bag to switch modes',
+      skip: 'Skip', next: 'Next', start: 'Start'
+    };
+    const C = en ? EN : ZH;
+    const pillow = (cx, cy, w, h, puff) => {
+      const x0 = cx - w / 2, x1 = cx + w / 2, y0 = cy - h / 2, y1 = cy + h / 2, r = Math.min(w, h) * 0.34, f = (v) => v.toFixed(1);
+      return 'M' + f(x0 + r) + ' ' + f(y0) + ' Q' + f(cx) + ' ' + f(y0 - puff) + ' ' + f(x1 - r) + ' ' + f(y0) +
+        ' Q' + f(x1) + ' ' + f(y0) + ' ' + f(x1) + ' ' + f(y0 + r) + ' Q' + f(x1 + puff * 0.8) + ' ' + f(cy) + ' ' + f(x1) + ' ' + f(y1 - r) +
+        ' Q' + f(x1) + ' ' + f(y1) + ' ' + f(x1 - r) + ' ' + f(y1) + ' Q' + f(cx) + ' ' + f(y1 + puff) + ' ' + f(x0 + r) + ' ' + f(y1) +
+        ' Q' + f(x0) + ' ' + f(y1) + ' ' + f(x0) + ' ' + f(y1 - r) + ' Q' + f(x0 - puff * 0.8) + ' ' + f(cy) + ' ' + f(x0) + ' ' + f(y0 + r) +
+        ' Q' + f(x0) + ' ' + f(y0) + ' ' + f(x0 + r) + ' ' + f(y0) + ' Z';
+    };
+    const dented = (cx, cy, w, h, dip) => {
+      const base = pillow(cx, cy, w, h, 8);
+      const x0 = cx - w / 2, x1 = cx + w / 2, y0 = cy - h / 2, r = Math.min(w, h) * 0.34, f = (v) => v.toFixed(1);
+      const top = 'M' + f(x0 + r) + ' ' + f(y0) + ' Q' + f(cx) + ' ' + f(y0 - 8) + ' ' + f(x1 - r) + ' ' + f(y0);
+      const L = cx - 66, R = cx + 68;
+      const two = 'M' + f(x0 + r) + ' ' + f(y0) +
+        ' C' + f(x0 + r + 14) + ' ' + f(y0 - 6) + ' ' + f(L - 30) + ' ' + f(y0 + dip) + ' ' + f(L) + ' ' + f(y0 + dip) +
+        ' C' + f(L + 30) + ' ' + f(y0 + dip) + ' ' + f(cx - 26) + ' ' + f(y0 - 7) + ' ' + f(cx) + ' ' + f(y0 - 7) +
+        ' C' + f(cx + 26) + ' ' + f(y0 - 7) + ' ' + f(R - 30) + ' ' + f(y0 + dip) + ' ' + f(R) + ' ' + f(y0 + dip) +
+        ' C' + f(R + 30) + ' ' + f(y0 + dip) + ' ' + f(x1 - r - 14) + ' ' + f(y0 - 6) + ' ' + f(x1 - r) + ' ' + f(y0);
+      return base.replace(top, two);
+    };
+    const rays = (cx, cy, r1, r2, n, rot) => {
+      let d = '';
+      for (let k = 0; k < n; k++) {
+        const a = (rot + k * 360 / n) * Math.PI / 180;
+        d += 'M' + (cx + r1 * Math.cos(a)).toFixed(1) + ' ' + (cy + r1 * Math.sin(a)).toFixed(1) + ' L' + (cx + r2 * Math.cos(a)).toFixed(1) + ' ' + (cy + r2 * Math.sin(a)).toFixed(1) + ' ';
+      }
+      return d;
+    };
+    const star = (cx, cy, r) => {
+      const q = r * 0.28;
+      return 'M' + cx + ' ' + (cy - r) + ' Q' + (cx + q) + ' ' + (cy - q) + ' ' + (cx + r) + ' ' + cy + ' Q' + (cx + q) + ' ' + (cy + q) + ' ' + cx + ' ' + (cy + r) +
+        ' Q' + (cx - q) + ' ' + (cy + q) + ' ' + (cx - r) + ' ' + cy + ' Q' + (cx - q) + ' ' + (cy - q) + ' ' + cx + ' ' + (cy - r) + ' Z';
+    };
+    const geo = { press: [228, 152, 300, 112, 8], free: [228, 136, 240, 104, 10], rhythm: [228, 128, 180, 82, 8] }[card];
+    const g = {};
+    if (geo) {
+      const [cx, cy, w, h, puff] = geo;
+      Object.assign(g, {
+        cx, bag: card === 'press' ? dented(cx, cy, w, h, 14) : pillow(cx, cy, w, h, puff),
+        seam: card === 'press' ? dented(cx, cy + 2, w - 26, h - 22, 12) : pillow(cx, cy + 2, w - 26, h - 22, puff * 0.6),
+        shadowY: cy + h / 2 + 4, shadowRx: w * 0.5,
+        hiX: cx - w * 0.16, hiY: cy - h * 0.26, hiRx: w * 0.2, hiRy: h * 0.09,
+        spX: cx - w * 0.3, spY: cy - h * 0.18
+      });
+    }
+    if (card === 'rhythm') Object.assign(g, {
+      ring1: pillow(228, 128, 228, 118, 9), ring2: pillow(228, 128, 268, 146, 10), ring3: pillow(228, 128, 312, 178, 11),
+      target: pillow(228, 128, 204, 102, 8), starA: star(318, 80, 12)
+    });
+    if (card === 'free') Object.assign(g, {
+      raysA: rays(176, 122, 22, 30, 8, 22.5), raysB: rays(292, 142, 15, 21, 8, 0),
+      starA: star(92, 60, 9), starB: star(388, 120, 7), starC: star(400, 178, 8)
+    });
+    const beads = [0, 1, 2, 3, 4, 5, 6, 7].map((k) => ({
+      x: 312 + k * 17,
+      fill: k < 5 ? T.accent : 'rgba(255,255,255,0.75)',
+      stroke: k < 5 ? '#FFFFFF' : 'rgba(31,28,44,0.2)'
+    }));
+    const modes = ['free', 'rhythm', 'breath'].map((key) => {
+      const on = key === card;
+      return {
+        free: key === 'free', rhythm: key === 'rhythm', breath: key === 'breath',
+        ink: on ? '#FFFFFF' : 'rgba(255,255,255,0.62)',
+        puck: on
+          ? 'background: linear-gradient(145deg, ' + T.bag1 + ', ' + T.accent + ' 55%, ' + T.bag2 + '); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.7), 0 6px 14px rgba(' + T.rgb + ',0.4)'
+          : 'background: rgba(255,255,255,0.10); box-shadow: inset 0 1px 0 rgba(255,255,255,0.35)'
+      };
+    });
+    const dots = order.map((_, k) => ({
+      style: k === i ? 'width: 22px; background: ' + T.accent : 'width: 8px; background: rgba(255,255,255,0.32)'
+    }));
+    const noop = () => {};
+    return {
+      t: {
+        accent: T.accent, deep: T.deep, bag0: T.bag0, bag1: T.bag1, bag2: T.bag2,
+        blob1: T.blobs[0], blob2: T.blobs[1], blob3: T.blobs[2], blob4: T.blobs[3],
+        card: 'background: linear-gradient(165deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.07) 42%, rgba(' + T.rgb + ',0.06) 100%), rgba(46,42,60,' + (flat ? '0.88' : '0.62') + '); box-shadow: inset 0 2px 1px rgba(255,255,255,0.35)' + (flat ? '' : ', 0 30px 80px rgba(16,10,30,0.45)'),
+        pill: 'background: rgba(' + T.rgb + ',0.20); color: ' + T.light,
+        stage: 'background: ' + T.stage,
+        recommend: 'background: rgba(' + T.rgb + ',0.18); color: ' + T.light,
+        button: 'background: linear-gradient(180deg, rgba(' + T.rgb + ',0.98), rgba(' + T.deepRgb + ',0.98)); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.6), 0 8px 22px rgba(' + T.deepRgb + ',0.4)'
+      },
+      hand: en ? { font: "'Caveat', cursive", size: 21 } : { font: "'ZCOOL KuaiLe', 'PingFang SC', cursive", size: 17 },
+      uid: world + '-' + card + '-' + (en ? 'en' : 'zh'),
+      buttonStyle: 'background: linear-gradient(180deg, rgba(' + T.rgb + ',0.98), rgba(' + T.deepRgb + ',0.98)); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.6), 0 8px 22px rgba(' + T.deepRgb + ',0.4)' + (hideControls ? '; display: none' : ''),
+      skipStyle: hideControls ? 'display: none' : 'opacity: 1',
+      step: (i + 1) + ' / 4',
+      kicker: C.kicker,
+      title: C[card][0], body: C[card][1],
+      recommend: C.rec[card] ?? '',
+      chip: C.chip[card], note: C.note[card] ?? '', noteIn: C.noteIn, noteOut: C.noteOut,
+      gift: C.gift, switchHint: C.switchHint,
+      skipLabel: C.skip,
+      isPress: card === 'press', isFree: card === 'free', isRhythm: card === 'rhythm', isBreath: card === 'breath',
+      isMode: card !== 'press', hasBag: card !== 'breath',
+      modes, dots, g, beads,
+      nextLabel: i === 3 ? C.start : C.next,
+      next: this.props.onNext ?? noop,
+      skip: this.props.onSkip ?? noop
+    };
+  }
+}
+</script>
+</body>
+</html>

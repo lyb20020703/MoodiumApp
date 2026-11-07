@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b64aeddfea9a4ac7803cba79df9be0f, type: 3}
+  m_Name: MoodiumWorldDatabase
+  m_EditorClassIdentifier: 
+  m_Worlds:
+  - {fileID: 11400000, guid: ca4e87f2503714e919083cd102f328f2, type: 2}
+  - {fileID: 11400000, guid: e697a8e5929e94801bafdde7558b92b1, type: 2}
+  - {fileID: 11400000, guid: d3925ad8f15c9488ba55672fbacd6434, type: 2}
+  - {fileID: 11400000, guid: 34c8c03103c024d699bc504165bc8fdf, type: 2}
+  - {fileID: 11400000, guid: 85269fff36b4e4a55a7c14fb104b1ae1, type: 2}

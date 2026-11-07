@@ -1,3 +1,4 @@
+#if MOODIUM_IVY_STUDIO
 using System.Collections.Generic;
 using Artngame.TreeGEN.ProceduralIvy;
 using UnityEngine;
@@ -1313,3 +1314,32 @@ namespace Moodium.NatureWorld
         void OnDisable() => StopAndClear();
     }
 }
+
+#else
+using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+
+namespace Moodium.NatureWorld
+{
+    /// <summary>Optional Ivy Studio integration. Install the licensed dependency and define MOODIUM_IVY_STUDIO to enable.</summary>
+    public sealed class NatureIvySpatialGrowthController : MonoBehaviour
+    {
+        public bool EnvironmentUnlocked => false;
+        public bool CanPlantEnvironment => false;
+        public int UserVineCount => 0;
+        public void Configure(Camera camera, ARMeshManager meshManager, GameObject prefab, Material material, int maxStrokes) { }
+        public void SetProgress(float progress) { }
+        public void SetSuspended(bool suspended) { }
+        public void SetDebugMode(bool enabled) { }
+        public void SetNatureSoftOrigin(Vector3 position) { }
+        public void RegisterRoomVisibility(Moodium.Flow.RoomContentVisibility visibility) { }
+        public void StartGrowth() { }
+        public void StopAndClear() { }
+        public bool ShowGuideSpot() => false;
+        public bool IsSpatialMeshCollider(Collider collider) => false;
+        public bool TryGrowFromGazeRay(Ray ray) => false;
+        public bool TryGrowFromSpatialPointer(Collider collider, Vector3 position) => false;
+        public void NotePinch(GameObject target, bool hasRay, bool plantable, bool grown) { }
+    }
+}
+#endif

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>心情盘</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.glass{position:relative;background:rgba(30,30,38,0.30);-webkit-backdrop-filter:blur(40px) saturate(170%);backdrop-filter:blur(40px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),0 40px 90px rgba(35,25,15,0.28),0 6px 18px rgba(35,25,15,0.12)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,255,255,0.80),rgba(255,255,255,0.10) 32%,rgba(255,255,255,0.04) 62%,rgba(255,255,255,0.42));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.chip{position:relative;-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);transition:background .25s,color .25s}
+.chip::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(150deg,rgba(255,255,255,0.65),rgba(255,255,255,0.08) 45%,rgba(255,255,255,0.30));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.token{transition:transform .18s cubic-bezier(.2,.8,.2,1)}
+.shadow{transition:transform .18s cubic-bezier(.2,.8,.2,1),opacity .18s}
+.quad{transition:opacity .3s}
+.tint{transition:background .35s}
+button{font:inherit;cursor:pointer}
+</style>
+</helmet>
+<div style="position: relative; width: 1200px; height: 900px; overflow: hidden; background: #9C9186; font-family: -apple-system, 'SF Pro Text', Inter, 'PingFang SC', 'Noto Sans SC', sans-serif; color: rgba(255,255,255,0.96)">
+  <div aria-hidden="true" style="position: absolute; inset: 0; filter: blur(70px)">
+    <div style="position: absolute; left: -120px; top: -160px; width: 620px; height: 560px; border-radius: 50%; background: #F1E4CE"></div>
+    <div style="position: absolute; left: 760px; top: -80px; width: 520px; height: 420px; border-radius: 50%; background: #D9C3A6"></div>
+    <div style="position: absolute; left: 860px; top: 520px; width: 460px; height: 460px; border-radius: 50%; background: #6E8A6C"></div>
+    <div style="position: absolute; left: -60px; top: 560px; width: 560px; height: 420px; border-radius: 50%; background: #A97F66"></div>
+    <div style="position: absolute; left: 420px; top: 720px; width: 420px; height: 260px; border-radius: 50%; background: #7C7068"></div>
+  </div>
+
+  <section class="glass" aria-label="心情盘" style="position: absolute; left: 270px; top: 46px; width: 660px; height: 808px; box-sizing: border-box; border-radius: 48px; padding: 40px 44px 36px; display: flex; flex-direction: column; align-items: center">
+    <p style="margin: 0; font-size: 15px; letter-spacing: 0.02em; color: rgba(255,255,255,0.70)">Moodi 想知道</p>
+    <h1 style="margin: 6px 0 0; font-size: 26px; font-weight: 500; letter-spacing: 0.01em">你现在的心情怎么样？</h1>
+
+    <div style="margin-top: 22px; display: flex; align-items: baseline; gap: 12px; height: 40px">
+      <span style="font-size: 32px; font-weight: 600; letter-spacing: 0.02em">{{w.name}}</span>
+      <span style="font-size: 16px; color: rgba(255,255,255,0.72)">{{w.desc}}</span>
+    </div>
+
+    <div style="margin-top: 14px; display: grid; grid-template-columns: 64px 400px 64px; grid-template-rows: 26px 400px 26px; align-items: center; justify-items: center">
+      <span style="grid-column: 2; grid-row: 1; font-size: 13px; color: rgba(255,255,255,0.74)">精力充沛</span>
+      <span style="grid-column: 1; grid-row: 2; font-size: 13px; color: rgba(255,255,255,0.74)">不太好</span>
+
+      <div onPointerDown="{{down}}" onPointerMove="{{move}}" onPointerUp="{{up}}" onPointerCancel="{{up}}" role="slider" aria-label="拖动 Moodi 选择现在的心情" aria-valuetext="{{w.name}}" tabindex="0" style="grid-column: 2; grid-row: 2; position: relative; width: 400px; height: 400px; border-radius: 50%; overflow: hidden; touch-action: none; cursor: grab; background: rgba(255,255,255,0.05); box-shadow: inset 0 3px 14px rgba(0,0,0,0.22), inset 0 -1px 0 rgba(255,255,255,0.35), 0 0 0 1px rgba(255,255,255,0.14)">
+        <div class="tint" aria-hidden="true" style="position: absolute; inset: 0; {{tintStyle}}"></div>
+        <div aria-hidden="true" style="position: absolute; left: 50%; top: 18px; bottom: 18px; width: 1px; background: rgba(255,255,255,0.18)"></div>
+        <div aria-hidden="true" style="position: absolute; top: 50%; left: 18px; right: 18px; height: 1px; background: rgba(255,255,255,0.18)"></div>
+        <div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 176px; height: 176px; margin: -88px 0 0 -88px; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.26)"></div>
+
+        <div class="quad" aria-hidden="true" style="position: absolute; left: 272px; top: 98px; color: #fff; opacity: {{q.happy}}"><dc-import name="MoodIcon" mood="happy" size="30" hint-size="30px,30px"></dc-import></div>
+        <div class="quad" aria-hidden="true" style="position: absolute; left: 272px; top: 272px; color: #fff; opacity: {{q.calm}}"><dc-import name="MoodIcon" mood="calm" size="30" hint-size="30px,30px"></dc-import></div>
+        <div class="quad" aria-hidden="true" style="position: absolute; left: 98px; top: 272px; color: #fff; opacity: {{q.low}}"><dc-import name="MoodIcon" mood="low" size="30" hint-size="30px,30px"></dc-import></div>
+        <div class="quad" aria-hidden="true" style="position: absolute; left: 98px; top: 98px; color: #fff; opacity: {{q.tense}}"><dc-import name="MoodIcon" mood="tense" size="30" hint-size="30px,30px"></dc-import></div>
+
+        <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+          <circle cx="50" cy="50" r="0.9" fill="rgba(255,255,255,0.7)"></circle>
+          <line x1="50" y1="50" x2="{{lx}}" y2="{{ly}}" stroke="rgba(255,255,255,0.45)" stroke-width="0.35" stroke-dasharray="1 1.2" opacity="{{trail}}"></line>
+        </svg>
+
+        <div class="token" style="position: absolute; width: 104px; height: 104px; pointer-events: none; {{tokenStyle}}">
+          <div class="shadow" aria-hidden="true" style="position: absolute; left: 50%; top: 90px; width: 62px; height: 14px; margin-left: -31px; border-radius: 50%; background: rgba(24,14,48,0.34); filter: blur(5px); {{shadowStyle}}"></div>
+          <div style="position: relative; width: 104px; height: 104px; filter: drop-shadow(0 6px 10px rgba(40,20,90,0.22))">
+            <dc-import name="MoodiFace" mood="{{k}}" size="104" hint-size="104px,104px"></dc-import>
+          </div>
+        </div>
+      </div>
+
+      <span style="grid-column: 3; grid-row: 2; font-size: 13px; color: rgba(255,255,255,0.74)">还不错</span>
+      <span style="grid-column: 2; grid-row: 3; font-size: 13px; color: rgba(255,255,255,0.74)">有点累</span>
+    </div>
+
+    <div role="group" aria-label="快捷选择心情" style="margin-top: 22px; display: flex; gap: 10px">
+      <sc-for list="{{chips}}" as="c" hint-placeholder-count="5">
+        <button class="chip" type="button" onClick="{{c.pick}}" aria-pressed="{{c.on}}" style="height: 52px; padding: 0 18px; border-radius: 26px; border: 0; display: flex; align-items: center; gap: 8px; font-size: 15px; {{c.style}}">
+          <dc-import name="MoodIcon" mood="{{c.key}}" size="20" hint-size="20px,20px"></dc-import>
+          <span>{{c.label}}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="margin-top: auto; width: 100%; height: 60px; display: flex; align-items: center; justify-content: center">
+      <sc-if value="{{phase.select}}" hint-placeholder-val="{{ true }}">
+        <div style="width: 100%; display: flex; align-items: center; justify-content: space-between">
+          <span style="font-size: 15px; color: rgba(255,255,255,0.72)">拖动 Moodi，或直接点一个心情</span>
+          <button class="chip" type="button" onClick="{{skip}}" style="height: 48px; padding: 0 22px; border-radius: 24px; border: 0; background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.92); font-size: 15px">跳过</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{phase.confirm}}" hint-placeholder-val="{{ false }}">
+        <div style="width: 100%; display: flex; align-items: center; justify-content: space-between">
+          <span style="font-size: 18px; font-weight: 500">你现在感觉{{w.name}}，对吗？</span>
+          <div style="display: flex; gap: 10px">
+            <button class="chip" type="button" onClick="{{adjust}}" style="height: 52px; padding: 0 24px; border-radius: 26px; border: 0; background: rgba(255,255,255,0.12); color: #fff; font-size: 16px">再调调</button>
+            <button type="button" onClick="{{confirm}}" style="height: 52px; padding: 0 30px; border-radius: 26px; border: 0; background: rgba(255,255,255,0.94); color: #1C1C22; font-size: 16px; font-weight: 500; box-shadow: 0 6px 18px rgba(0,0,0,0.18)">对</button>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{phase.rec}}" hint-placeholder-val="{{ false }}">
+        <div style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 13px; color: rgba(255,255,255,0.70)">Moodi 推荐 · {{rec.world}}</span>
+            <span style="font-size: 17px">{{rec.line}}</span>
+          </div>
+          <button class="chip" type="button" onClick="{{reset}}" style="flex: none; height: 48px; padding: 0 20px; border-radius: 24px; border: 0; background: rgba(255,255,255,0.12); color: #fff; font-size: 15px">再选一次</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1200,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { x: 0, y: 0, dragging: false, phase: 'select' };
+  }
+  classify(x, y) {
+    const r = Math.min(1, Math.hypot(x, y));
+    if (r < 0.22) return 'neutral';
+    if (x >= 0) return y >= 0 ? 'happy' : 'calm';
+    return y >= 0 ? 'tense' : 'low';
+  }
+  setFromEvent(e) {
+    const b = e.currentTarget.getBoundingClientRect();
+    let x = ((e.clientX - b.left) / b.width * 2 - 1) / 0.80;
+    let y = -((e.clientY - b.top) / b.height * 2 - 1) / 0.80;
+    const m = Math.hypot(x, y);
+    if (m > 1) { x /= m; y /= m; }
+    this.setState({ x: x, y: y });
+  }
+  renderVals() {
+    const W = {
+      happy: { name: '开心', desc: '愉快、有活力', tint: '255,200,120' },
+      calm: { name: '平静', desc: '放松、安稳', tint: '140,226,200' },
+      neutral: { name: '一般', desc: '说不上好坏', tint: '214,220,232' },
+      low: { name: '低落', desc: '有点累、提不起劲', tint: '140,166,206' },
+      tense: { name: '烦躁', desc: '紧张、有压力', tint: '232,128,112' }
+    };
+    const REC = {
+      happy: { world: '糖果世界', line: '好心情要放大，去撒点糖吧' },
+      calm: { world: '自然世界', line: '这份平静很珍贵，去森林待一会儿' },
+      neutral: { world: '自然世界', line: '都可以哦，先去森林走走？' },
+      low: { world: '糖果世界', line: '给自己一点甜，轻轻捏一捏' },
+      tense: { world: '自然世界', line: '先跟着袋子慢慢呼吸，松下来' }
+    };
+    const PRESET = { happy: [0.6, 0.6], calm: [0.6, -0.6], neutral: [0, 0], low: [-0.6, -0.6], tense: [-0.6, 0.6] };
+    const s = this.state;
+    const k = this.classify(s.x, s.y);
+    const w = W[k];
+    const r = Math.min(1, Math.hypot(s.x, s.y));
+    const left = 50 + s.x * 40;
+    const top = 50 - s.y * 40;
+    const glowA = (0.22 + 0.5 * r).toFixed(2);
+    const baseA = (0.10 + 0.14 * r).toFixed(2);
+    const tintStyle = 'background: radial-gradient(circle at ' + left.toFixed(1) + '% ' + top.toFixed(1) + '%, rgba(' + w.tint + ',' + glowA + ') 0%, rgba(' + w.tint + ',' + baseA + ') 55%, rgba(' + w.tint + ',' + (baseA * 0.6).toFixed(2) + ') 100%)';
+    const scale = s.dragging ? 1.12 : 1;
+    const tokenStyle = 'left: ' + left.toFixed(2) + '%; top: ' + top.toFixed(2) + '%; transform: translate(-50%, -50%) scale(' + scale + ')';
+    const shadowStyle = s.dragging ? 'transform: translateY(8px) scale(1.25); opacity: 0.55' : 'transform: none; opacity: 1';
+    const q = {};
+    ['happy', 'calm', 'low', 'tense'].forEach(function (n) { q[n] = n === k ? 0.95 : 0.26; });
+    const chips = ['happy', 'calm', 'neutral', 'low', 'tense'].map((n) => {
+      const on = n === k;
+      return {
+        key: n,
+        label: W[n].name,
+        on: on ? 'true' : 'false',
+        style: on ? 'background: rgba(255,255,255,0.94); color: #1C1C22' : 'background: rgba(255,255,255,0.10); color: rgba(255,255,255,0.92)',
+        pick: () => this.setState({ x: PRESET[n][0], y: PRESET[n][1], dragging: false, phase: 'confirm' })
+      };
+    });
+    return {
+      k: k,
+      w: w,
+      rec: REC[k],
+      q: q,
+      tintStyle: tintStyle,
+      tokenStyle: tokenStyle,
+      shadowStyle: shadowStyle,
+      lx: left.toFixed(2),
+      ly: top.toFixed(2),
+      trail: r > 0.08 ? 1 : 0,
+      chips: chips,
+      phase: { select: s.phase === 'select', confirm: s.phase === 'confirm', rec: s.phase === 'rec' },
+      down: (e) => {
+        if (this.state.phase === 'rec') return;
+        if (e.currentTarget.setPointerCapture) e.currentTarget.setPointerCapture(e.pointerId);
+        this.setState({ dragging: true, phase: 'select' });
+        this.setFromEvent(e);
+      },
+      move: (e) => { if (this.state.dragging) this.setFromEvent(e); },
+      up: () => { if (this.state.dragging) this.setState({ dragging: false, phase: 'confirm' }); },
+      adjust: () => this.setState({ phase: 'select' }),
+      confirm: () => this.setState({ phase: 'rec' }),
+      skip: () => this.setState({ x: 0, y: 0, phase: 'select' }),
+      reset: () => this.setState({ x: 0, y: 0, dragging: false, phase: 'select' })
+    };
+  }
+}
+</script>
+</body>
+</html>

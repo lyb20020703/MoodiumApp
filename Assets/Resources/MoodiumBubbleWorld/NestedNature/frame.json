@@ -1,0 +1,118 @@
+{
+  "name": "NestedNature",
+  "source_ply": "01_SourceModels/Nature_Layer2/b792f7bb25e24fbe792219ac5b03b953.ply",
+  "panorama": "Assets/Resources/MoodiumBubbleWorld/NestedNature/panorama.png",
+  "convention": "Unity = T @ raw (column vectors); det(T) = -1 includes the right-handed -> left-handed flip; panorama unchanged, u = 0.5 + atan2(x, z)/2pi",
+  "T_rows": [
+    [
+      -0.08368231940862286,
+      -0.018603033063088525,
+      0.9963184259651596
+    ],
+    [
+      -0.9329570123684058,
+      0.35276132118337317,
+      -0.07177398671206384
+    ],
+    [
+      0.35012785187844114,
+      0.9355282973698952,
+      0.04687556898602357
+    ]
+  ],
+  "row_transform_for_converter": [
+    -0.08368231940862286,
+    -0.9329570123684058,
+    0.35012785187844114,
+    -0.018603033063088525,
+    0.35276132118337317,
+    0.9355282973698952,
+    0.9963184259651596,
+    -0.07177398671206384,
+    0.04687556898602357
+  ],
+  "up_in_raw_frame": [
+    -0.93471,
+    0.35039,
+    -0.05949
+  ],
+  "score": 0.5978,
+  "second_best_score": 0.3776,
+  "sector_correlation": [
+    0.648,
+    0.507,
+    0.177,
+    0.52,
+    0.46,
+    0.966,
+    0.734,
+    0.694
+  ],
+  "ground_tilt_deg": 3.76,
+  "eye_height_above_ground_m": 0.369,
+  "original_T_rows": [
+    [
+      -0.076344,
+      -0.034474,
+      0.996485
+    ],
+    [
+      -0.934715,
+      0.350385,
+      -0.05949
+    ],
+    [
+      0.347103,
+      0.935971,
+      0.058973
+    ]
+  ],
+  "refinement": {
+    "reason": "User-authorized offline refinement; fixed source-frame verification sample",
+    "residual_degrees": 1.0096988456564182,
+    "residual_T_rows": [
+      [
+        0.9998471168577632,
+        0.012430090973428334,
+        0.012297794501903707
+      ],
+      [
+        -0.012456950964009571,
+        0.9999201830679643,
+        0.0021099445512427423
+      ],
+      [
+        -0.012270586126954922,
+        -0.002262814999365483,
+        0.9999221531621248
+      ]
+    ],
+    "score": 0.6104436805001697
+  },
+  "exported_at": "2026-10-30T15:16:28.066590+00:00",
+  "source_sha256": "bea0edb6d2b950c4af4ad52995e8c3cb4c27731a576320c7de7532bdcb552b74",
+  "points_sha256": "52876c7fbc8009a4e021357e6b3d65b306a00fa4a5ebdc3c18052775ab64f408",
+  "count": 500000,
+  "runtime_source_rotation": "identity",
+  "export_options": {
+    "footprint": "layer1",
+    "sampling": "eye",
+    "viewer_eye_height": 1.5,
+    "direction_balance": 0.5
+  },
+  "export_verification": {
+    "score": 0.6132815448429152,
+    "canonical_error_degrees": 0.4352404172487839,
+    "score_gap": 0.26306931868699407,
+    "passed": true,
+    "sampling": "fixed source-frame direction cells; original Gaussian opacity > .35"
+  },
+  "previous_export": {
+    "points_sha256": "f13ff2d21cad4627cd7d9ea7d744666d74939c5331da6a3f6b7ab74bfbcbb5bd",
+    "exported_at": "2026-10-29T15:44:01.108821+00:00",
+    "export_options": {
+      "footprint": "legacy",
+      "sampling": "capture"
+    }
+  }
+}

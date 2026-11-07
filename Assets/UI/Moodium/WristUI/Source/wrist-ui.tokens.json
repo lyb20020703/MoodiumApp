@@ -1,0 +1,198 @@
+{
+  "$schema": "Moodium Wrist UI v2 design tokens. Units: metres for world sizes, canvas units for the card (1 unit = 0.25 mm), seconds for time, degrees for angles. Unity reads the same numbers from the serialized fields of CandyEnergyWristUI; keep both in sync.",
+  "version": "2.0.0",
+  "color": {
+    "accent.candy": "#FF5B9D",
+    "accent.nature": "#8DDC87",
+    "band.glass": "rgba(255,255,255,0.22)",
+    "band.glass.ambient": "rgba(255,255,255,0.08)",
+    "thread.track": "rgba(255,255,255,0.25)",
+    "card.fill.top": "rgba(46,43,58,0.80)",
+    "card.fill.bottom": "rgba(30,28,38,0.86)",
+    "card.rim": "white, 95% top-left → 6% → 50% bottom-right",
+    "chip.glass": "rgba(255,255,255,0.10–0.22)",
+    "chip.on": "accent at 92%",
+    "exit.armed": "rgba(255,199,115,0.92)",
+    "exit.armed.text": "#40240A",
+    "text.primary": "#FFFFFF",
+    "text.secondary": "rgba(255,255,255,0.72)",
+    "socket.empty": "rgba(255,255,255,0.45–0.90)",
+    "socket.reached": "accent"
+  },
+  "band": {
+    "radiusX": 0.034,
+    "radiusZ": 0.027,
+    "tubeRadius": 0.003,
+    "threadTubeRadius": 0.0016,
+    "threadStartDeg": 150,
+    "threadEndDeg": 30,
+    "wristOffset": [
+      0,
+      -0.012,
+      0
+    ],
+    "socketProgress": [
+      0.2,
+      0.5,
+      0.8,
+      1
+    ],
+    "socketRingSize": 0.012,
+    "socketOutwardOffset": 0.0065,
+    "gemDiameter": 0.015,
+    "glowSize": 0.11,
+    "threadHeadSize": 0.011,
+    "scaleWhenGlancing": 1.1,
+    "ambientOpacity": 0.35
+  },
+  "card": {
+    "canvasScale": 0.00025,
+    "size": [
+      420,
+      236
+    ],
+    "worldSizeMetres": [
+      0.105,
+      0.059
+    ],
+    "cornerRadius": 64,
+    "liftAboveBand": 0.072,
+    "moodi": {
+      "position": [
+        -162,
+        66
+      ],
+      "size": 60
+    },
+    "title": {
+      "position": [
+        -40,
+        80
+      ],
+      "fontSize": 26,
+      "weight": "bold"
+    },
+    "subtitle": {
+      "position": [
+        -40,
+        50
+      ],
+      "fontSize": 17
+    },
+    "percentage": {
+      "position": [
+        140,
+        66
+      ],
+      "fontSize": 40,
+      "weight": "bold"
+    },
+    "gemDots": {
+      "y": 4,
+      "size": 22,
+      "spacing": 34
+    },
+    "chip": {
+      "height": 64,
+      "fontSize": 20,
+      "iconSize": 30,
+      "y": -74
+    },
+    "releaseChip": {
+      "width": 208,
+      "x": -92,
+      "iconX": -86,
+      "labelX": -16,
+      "labelWidth": 102,
+      "labelFontMax": 17,
+      "labelFontMin": 12,
+      "toggleKnobOffX": -44,
+      "toggleKnobOnX": -24
+    },
+    "exitChip": {
+      "width": 168,
+      "x": 112,
+      "widthAlone": 236
+    }
+  },
+  "toast": {
+    "size": [
+      300,
+      56
+    ],
+    "fontSize": 20,
+    "liftAboveBand": 0.028,
+    "seconds": 2.5
+  },
+  "motion": {
+    "follow": 14,
+    "cardIn": 0.22,
+    "cardOut": 0.18,
+    "cardMinVisible": 0.6,
+    "cardScaleFrom": 0.92,
+    "socketFlash": 0.8,
+    "progressEase": 5.5,
+    "exitConfirmWindow": 2
+  },
+  "glance": {
+    "enterDeg": 45,
+    "exitDeg": 55,
+    "maxDistance": 0.65,
+    "raisedWristDrop": 0.45,
+    "raisedWristExitDrop": 0.55,
+    "dorsalFacingDot": 0.25,
+    "dorsalExitFacingDot": 0.1,
+    "input": "head direction + raised wrist pose; NOT raw eye tracking"
+  },
+  "sortingOrder": {
+    "band.glow": 0,
+    "band.thread": 1,
+    "band.glass": 2,
+    "band.threadHead": 3,
+    "band.socketRing": 4,
+    "card.canvas": 10,
+    "toast.canvas": 11
+  },
+  "copy": {
+    "title.candy": {
+      "zh": "糖果能量",
+      "en": "Candy Energy"
+    },
+    "title.nature": {
+      "zh": "自然能量",
+      "en": "Nature Energy"
+    },
+    "nextGift": {
+      "zh": "下一件礼物 · 第 {n} 件",
+      "en": "Next gift · {n} of 4"
+    },
+    "allGifts": {
+      "zh": "4 件礼物都收齐啦",
+      "en": "All 4 gifts collected"
+    },
+    "release.off": {
+      "zh": "释放：关闭",
+      "en": "Release: Off"
+    },
+    "release.on": {
+      "zh": "释放：开启",
+      "en": "Release: On"
+    },
+    "exit": {
+      "zh": "退出世界",
+      "en": "Exit World"
+    },
+    "exit.confirm": {
+      "zh": "再点一次退出",
+      "en": "Tap again to exit"
+    },
+    "toast.gift": {
+      "zh": "第 {n} 件 · {name} 已收进手链",
+      "en": "Gift {n} · {name} is on your band"
+    },
+    "stageProgress": {
+      "zh": "能量阶段 · {n}/4",
+      "en": "Energy stages · {n}/4"
+    }
+  }
+}

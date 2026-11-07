@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>心情图标</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<span style="display: inline-flex; width: {{px}}; height: {{px}}; color: inherit">
+  <svg aria-hidden="true" viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9.2"></circle>
+    <sc-if value="{{dots}}" hint-placeholder-val="{{ true }}">
+      <circle cx="9" cy="{{eyeY}}" r="0.9" fill="currentColor" stroke="none"></circle>
+      <circle cx="15" cy="{{eyeY}}" r="0.9" fill="currentColor" stroke="none"></circle>
+    </sc-if>
+    <sc-if value="{{is.happy}}" hint-placeholder-val="{{ false }}"><path d="M8.3 13.6 Q 12 17.6 15.7 13.6"></path></sc-if>
+    <sc-if value="{{is.calm}}" hint-placeholder-val="{{ true }}"><path d="M7.6 10.2 Q 9 11.8 10.4 10.2"></path><path d="M13.6 10.2 Q 15 11.8 16.4 10.2"></path><path d="M9.4 14.8 Q 12 16.6 14.6 14.8"></path></sc-if>
+    <sc-if value="{{is.neutral}}" hint-placeholder-val="{{ false }}"><path d="M9.2 15h5.6"></path></sc-if>
+    <sc-if value="{{is.low}}" hint-placeholder-val="{{ false }}"><path d="M9.2 16.2 Q 12 13.6 14.8 16.2"></path></sc-if>
+    <sc-if value="{{is.tense}}" hint-placeholder-val="{{ false }}"><path d="M7.6 7.8 L 10.4 9"></path><path d="M16.4 7.8 L 13.6 9"></path><path d="M8.4 15.6 l1.8-1.2 1.8 1.2 1.8-1.2 1.8 1.2"></path></sc-if>
+  </svg>
+</span>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mood":{"editor":"enum","options":["happy","calm","neutral","low","tense"],"default":"happy"},"size":{"editor":"int","default":48,"min":12,"max":160,"unit":"px"},"$preview":{"width":48,"height":48}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const m = this.props.mood ?? 'happy';
+    const size = Number(this.props.size) || 48;
+    return {
+      px: size + 'px',
+      dots: m !== 'calm',
+      eyeY: m === 'tense' ? 11.2 : 10,
+      is: { happy: m === 'happy', calm: m === 'calm', neutral: m === 'neutral', low: m === 'low', tense: m === 'tense' }
+    };
+  }
+}
+</script>
+</body>
+</html>

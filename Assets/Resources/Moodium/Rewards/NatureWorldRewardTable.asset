@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a422f6520c4a4da38fae6461f88fbd38, type: 3}
+  m_Name: NatureWorldRewardTable
+  m_EditorClassIdentifier: 
+  m_Entries:
+  - stage: 20
+    prefabs:
+    - {fileID: 100100000, guid: 0ccf480805cf43ffb31491b78960ab8e, type: 3}
+    - {fileID: 100100000, guid: 54e422f949db4b5a80997273b27c9813, type: 3}
+    - {fileID: 100100000, guid: ef0bc5e54ce249b49ad7bf686d5c4772, type: 3}
+    displayName: Flowers and Mushrooms
+    sizeClass: 0
+    targetHeight: 0.25
+    miniatureScaleOverride: -1
+  - stage: 50
+    prefabs:
+    - {fileID: 100100000, guid: 05d5594e10e4cd742b66aa57ea5e3f24, type: 3}
+    displayName: Juniper Shrub
+    sizeClass: 1
+    targetHeight: 0.5
+    miniatureScaleOverride: -1
+  - stage: 80
+    prefabs:
+    - {fileID: 100100000, guid: 0fa75777d520af24495d9f3e8f7516b6, type: 3}
+    displayName: Little Oak
+    sizeClass: 1
+    targetHeight: 0.85
+    miniatureScaleOverride: -1
+  - stage: 100
+    prefabs:
+    - {fileID: 100100000, guid: 2723a59d56b1ae340b9d32d20057c953, type: 3}
+    displayName: Pine Tree
+    sizeClass: 2
+    targetHeight: 1.4
+    miniatureScaleOverride: -1

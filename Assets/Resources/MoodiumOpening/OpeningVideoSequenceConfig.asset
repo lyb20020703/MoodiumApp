@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb98fd2d0dd9f417ea5046ecc0e469f5, type: 3}
+  m_Name: OpeningVideoSequenceConfig
+  m_EditorClassIdentifier: 
+  m_VideoClip: {fileID: 32900000, guid: 25c81c93cd0db4c97a212bc0110d7a1f, type: 3}
+  m_BagIntroClip: {fileID: 32900000, guid: a7489a730b19e4809a3314c0814cf5b4, type: 3}
+  m_FrameAdjustingChineseClip: {fileID: 32900000, guid: 825d651fd6f7c47cb81564befdb286e4, type: 3}
+  m_FrameAdjustingEnglishClip: {fileID: 32900000, guid: 8f618511c2a964b39a13036a28eb4dbd, type: 3}
+  m_CandySqueezeClip: {fileID: 32900000, guid: 585440493c2424c5cbed0c621fe9f2ed, type: 3}
+  m_NatureSqueezeClip: {fileID: 32900000, guid: fb76f47b9d35349d282b968e31f1bb89, type: 3}
+  m_MoodiEmergencePrefab: {fileID: 1983304832228171783, guid: 6153ad677d6bc4eb88bbecb9b426c07f, type: 3}
+  m_MoodiEmergenceClip: {fileID: 5406842849461195049, guid: 92e18aa29a30f463299a731a79d8ebeb, type: 3}
+  m_MoodiEmergenceScale: 0.01
+  m_IntroLoopStartTime: 0
+  m_IntroLoopEndTime: 3.08
+  m_LanguageLoopStartTime: 24.466667
+  m_LanguageLoopEndTime: 32.3
+  m_DistanceFromUser: 1.35
+  m_HeightOffset: -0.05
+  m_WorldPositionY: 1.15
+  m_ChineseTutorialClip: {fileID: 32900000, guid: 25c81c93cd0db4c97a212bc0110d7a1f, type: 3}
+  m_EnglishTutorialClip: {fileID: 32900000, guid: 25c81c93cd0db4c97a212bc0110d7a1f, type: 3}
+  m_ChineseHardwareQuestionTime: 9.04
+  m_ChineseHardwareLoopEndTime: 15.03
+  m_ChineseHardwareYesEndTime: 30.06
+  m_ChineseHardwareNoStartTime: 36.05
+  m_ChineseHardwareNoEndTime: 51.08
+  m_EnglishHardwareQuestionTime: 9.23
+  m_EnglishHardwareLoopEndTime: 15.03
+  m_EnglishHardwareYesEndTime: 30.11
+  m_EnglishHardwareNoStartTime: 35.16
+  m_EnglishHardwareNoEndTime: 50.2

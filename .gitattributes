@@ -1,0 +1,24 @@
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.FBX filter=lfs diff=lfs merge=lfs -text
+"/Assets/Video/OpenningAnimation.mp4" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Video/Nature SqueezeAlpha.mp4" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Video/VideoPLUS.mp4" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Video/OPENANI.mp4" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Video/newnaturesqueeze.mp4" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Video/NewOpenningAni.mp4" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Video/CandySqueezeAlpha.mp4" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Video/hiimmoodi.mp4" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/CandyWorldLevelSelection.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/TransparentBag.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/Candy Box.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/wood.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/newip.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/NatureWorldUI 1.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/NatureWorldUI.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/candybag.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/CandyWorldUI.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/gesture.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/Model/leaf.fbx" filter=lfs diff=lfs merge=lfs -text
+"/Assets/_Game/_Common/Data/qianlao.ply" filter=lfs diff=lfs merge=lfs -text
+"/Assets/_Game/Chapters/P00_SJTU130/Data/1955年 归国后钱学森两回母校照片高清修复版.ply" filter=lfs diff=lfs merge=lfs -text
+"/Assets/ARTnGAME/InfiniGRASS/Grass Assets/Textures - Materials/all_bushes_diff 2.PSD" filter=lfs diff=lfs merge=lfs -text

@@ -1,3 +1,4 @@
+#if MOODIUM_IVY_STUDIO
 using Artngame.TreeGEN.ProceduralIvy;
 using Moodium.NatureWorld;
 using NUnit.Framework;
@@ -102,3 +103,5 @@ public sealed class NatureIvySpatialGrowthControllerTests
         Assert.That(NatureIvySpatialGrowthController.ShouldUseIvyStudioAutoLeaves(), Is.True);
     }
 }
+
+#endif

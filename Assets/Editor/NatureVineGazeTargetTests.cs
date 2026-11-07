@@ -1,3 +1,4 @@
+#if MOODIUM_IVY_STUDIO
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -213,3 +214,5 @@ public sealed class NatureVineGazeTargetTests
             "the global sync mask is unchanged: only the twins reach visionOS, and only while vines can be planted");
     }
 }
+
+#endif

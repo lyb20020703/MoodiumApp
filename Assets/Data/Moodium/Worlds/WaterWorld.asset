@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71d38d0977b4b90a943225036010a0e, type: 3}
+  m_Name: WaterWorld
+  m_EditorClassIdentifier: 
+  m_WorldId: water
+  m_DisplayName: Water World
+  m_LocalizedName: 
+  m_Description: Flowing and weightless
+  m_Icon: {fileID: 21300000, guid: 23669d547b67441ea9787639b9ad8794, type: 3}
+  m_CardArtwork: {fileID: 0}
+  m_AccentColor: {r: 0.32, g: 0.7, b: 1, a: 1}
+  m_IsAvailable: 0
+  m_Prefabs: []

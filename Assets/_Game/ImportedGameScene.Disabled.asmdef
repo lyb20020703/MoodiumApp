@@ -1,0 +1,16 @@
+{
+  "name": "Moodium.Imported.GameScene.Disabled",
+  "rootNamespace": "",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "MOODIUM_ENABLE_IMPORTED_GAME_SCENE"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

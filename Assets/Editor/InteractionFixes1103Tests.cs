@@ -1,3 +1,4 @@
+#if MOODIUM_IVY_STUDIO
 using System.IO;
 using System.Reflection;
 using Artngame.TreeGEN.ProceduralIvy;
@@ -158,3 +159,5 @@ public sealed class InteractionFixes1103Tests
         Assert.That(vines.CanPlantEnvironment, Is.True);
     }
 }
+
+#endif

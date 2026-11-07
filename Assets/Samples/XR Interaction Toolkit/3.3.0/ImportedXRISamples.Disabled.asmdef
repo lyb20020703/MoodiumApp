@@ -1,0 +1,16 @@
+{
+  "name": "Moodium.Imported.XRISamples.Disabled",
+  "rootNamespace": "",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [
+    "MOODIUM_ENABLE_IMPORTED_XRI_SCENE"
+  ],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

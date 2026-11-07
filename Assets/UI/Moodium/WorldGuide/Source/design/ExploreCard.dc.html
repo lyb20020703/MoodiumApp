@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>自由探索卡</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;family=ZCOOL+KuaiLe&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.ec-glass{-webkit-backdrop-filter:blur(30px) saturate(150%);backdrop-filter:blur(30px) saturate(150%)}
+.ec-glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;background:linear-gradient(165deg,rgba(255,255,255,0.9),rgba(255,255,255,0.16) 32%,rgba(255,255,255,0.05) 62%,rgba(255,255,255,0.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.ec-btn{font:inherit;cursor:pointer;border:0}
+</style>
+</helmet>
+<div class="ec-glass" style="position: relative; width: 640px; height: 560px; box-sizing: border-box; padding: 30px 30px 28px; border-radius: 48px; display: flex; flex-direction: column; gap: 22px; font-family: -apple-system, 'SF Pro Text', Inter, 'PingFang SC', 'Noto Sans SC', sans-serif; color: rgba(255,255,255,0.96); {{t.card}}">
+  <span style="position: absolute; right: 30px; top: 70px; font-size: {{hand.size}}px; color: {{t.light}}; font-family: {{hand.font}}; transform: rotate(-6deg)">{{c.cheer}}</span>
+
+  <div style="position: relative; display: flex; flex-direction: column; gap: 10px">
+    <span style="display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; height: 32px; padding: 0 14px; border-radius: 16px; font-size: 14px; font-weight: 600; {{t.pill}}"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{t.accent}}"></span>{{c.kicker}}</span>
+    <span style="font-size: 30px; line-height: 1.25; font-weight: 700">{{c.title}}</span>
+    <span style="font-size: 16px; line-height: 1.5; color: rgba(255,255,255,0.75)">{{c.sub}}</span>
+  </div>
+
+  <div style="position: relative; display: flex; flex-direction: column; gap: 12px">
+    <sc-for list="{{tiles}}" as="tile" hint-placeholder-count="3">
+      <div style="display: flex; align-items: center; gap: 16px; padding: 12px 16px 12px 12px; border-radius: 28px; background: rgba(255,255,255,0.08); box-shadow: inset 0 1px 0 rgba(255,255,255,0.14)">
+        <span style="flex: none; width: 60px; height: 60px; border-radius: 20px; display: flex; align-items: center; justify-content: center; {{t.well}}">
+          <sc-if value="{{tile.rainCandy}}" hint-placeholder-val="{{ true }}">
+            <svg viewBox="0 0 40 40" width="38" height="38" fill="none" aria-hidden="true"><path d="M9 4v7M20 2v5M31 5v6" stroke="{{t.deep}}" stroke-opacity="0.35" stroke-width="1.6" stroke-linecap="round"></path><g transform="translate(10 17) rotate(-20)"><ellipse cx="0" cy="0" rx="5" ry="3.6" fill="{{t.deep}}"></ellipse><path d="M-5 0l-4 -3v6zM5 0l4 -3v6z" fill="{{t.deep}}"></path></g><g transform="translate(28 15) rotate(18)"><ellipse cx="0" cy="0" rx="4.4" ry="3.2" fill="#FFFFFF"></ellipse><path d="M-4.4 0l-3.6 -2.6v5.2zM4.4 0l3.6 -2.6v5.2z" fill="#FFFFFF"></path></g><g transform="translate(19 30) rotate(-8)"><ellipse cx="0" cy="0" rx="5.4" ry="3.8" fill="#FFFFFF"></ellipse><path d="M-5.4 0l-4 -3v6zM5.4 0l4 -3v6z" fill="#FFFFFF"></path></g></svg>
+          </sc-if>
+          <sc-if value="{{tile.rainNature}}" hint-placeholder-val="{{ false }}">
+            <svg viewBox="0 0 40 40" width="38" height="38" fill="none" aria-hidden="true"><path d="M8 4v6M20 2v5M32 5v6" stroke="{{t.deep}}" stroke-opacity="0.35" stroke-width="1.6" stroke-linecap="round"></path><path d="M6 22c4-7 11-7 13-6-2 6-8 9-13 6z" fill="{{t.deep}}"></path><path d="M22 14c5-4 11-3 13-1-3 5-9 6-13 1z" fill="#FFFFFF"></path><circle cx="24" cy="31" r="3.4" fill="#FFFFFF"></circle><circle cx="24" cy="31" r="1.3" fill="{{t.deep}}"></circle><path d="M24 27.6v-2.2M27.4 31h2.2M20.6 31h-2.2M24 34.4v2.2" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"></path></svg>
+          </sc-if>
+          <sc-if value="{{tile.path}}" hint-placeholder-val="{{ false }}">
+            <svg viewBox="0 0 40 40" width="38" height="38" fill="none" aria-hidden="true"><ellipse cx="12" cy="29" rx="4" ry="6" fill="#FFFFFF"></ellipse><circle cx="9.5" cy="20.5" r="1.3" fill="#FFFFFF"></circle><circle cx="12.5" cy="20" r="1.3" fill="#FFFFFF"></circle><circle cx="15.2" cy="21" r="1.2" fill="#FFFFFF"></circle><ellipse cx="22" cy="20" rx="3.6" ry="5.4" fill="#FFFFFF" opacity="0.8"></ellipse><circle cx="19.8" cy="12.4" r="1.2" fill="#FFFFFF" opacity="0.8"></circle><circle cx="22.4" cy="12" r="1.2" fill="#FFFFFF" opacity="0.8"></circle><circle cx="24.8" cy="12.8" r="1.1" fill="#FFFFFF" opacity="0.8"></circle><path d="M32 33v-9" stroke="{{t.deep}}" stroke-width="2.2" stroke-linecap="round"></path><path d="M32 26c-4 0-6-3-6-5 3 0 6 2 6 5zM32 25c0-4 3-6 6-6 0 3-2 6-6 6z" fill="{{t.deep}}"></path></svg>
+          </sc-if>
+          <sc-if value="{{tile.house}}" hint-placeholder-val="{{ false }}">
+            <svg viewBox="0 0 40 40" width="38" height="38" fill="none" aria-hidden="true"><path d="M8 19L20 8l12 11v13a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z" fill="#FFFFFF" stroke="{{t.deep}}" stroke-width="2" stroke-linejoin="round"></path><path d="M16.5 34v-7a3.5 3.5 0 0 1 7 0v7" fill="{{t.deep}}" opacity="0.35"></path><circle cx="13.5" cy="22" r="1.6" fill="{{t.deep}}"></circle><circle cx="26.5" cy="22" r="1.6" fill="{{t.deep}}"></circle><path d="M3 22c-1.5 3-1.5 6 0 9M37 22c1.5 3 1.5 6 0 9" stroke="{{t.deep}}" stroke-width="1.8" stroke-linecap="round" opacity="0.6"></path></svg>
+          </sc-if>
+          <sc-if value="{{tile.ivy}}" hint-placeholder-val="{{ false }}">
+            <svg viewBox="0 0 40 40" width="38" height="38" fill="none" aria-hidden="true"><rect x="5" y="5" width="30" height="30" rx="5" fill="rgba(255,255,255,0.5)" stroke="#FFFFFF" stroke-width="1.8"></rect><path d="M9 33c3-6 2-10 7-13s9-2 11-8 4-5 4-5" stroke="{{t.deep}}" stroke-width="2" stroke-linecap="round"></path><path d="M13 24c-3 0-5-2-5-4 3 0 5 2 5 4zM19 19c0-3 2-5 4-5 0 3-2 5-4 5zM26 14c-3 0-4-2-4-4 3 0 4 2 4 4zM16 27c2-2 5-2 6 0-2 2-5 2-6 0z" fill="{{t.deep}}"></path></svg>
+          </sc-if>
+        </span>
+        <div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+          <span style="font-size: 18px; font-weight: 600">{{tile.title}}</span>
+          <span style="font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.78)">{{tile.body}}</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="position: relative; margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 54px">
+    <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(255,255,255,0.7)">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="14" height="9" rx="4.5"></rect><path d="M8 8V5M16 8V5M8 17v2M16 17v2"></path></svg>
+      {{c.exit}}
+    </span>
+    <button class="ec-btn" type="button" onClick="{{close}}" style="height: 54px; padding: 0 10px 0 24px; border-radius: 27px; display: inline-flex; align-items: center; gap: 14px; font-size: 17px; font-weight: 600; color: #FFFFFF; {{buttonStyle}}">{{c.go}}<span style="width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.16)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"></path></svg></span></button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"world":{"editor":"enum","options":["candy","nature"],"default":"candy"},"lang":{"editor":"enum","options":["zh","en"],"default":"zh"},"onClose":{"editor":null},"flat":{"editor":null},"hideControls":{"editor":null},"$preview":{"width":640,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const candy = this.props.world !== 'nature';
+    const T = candy
+      ? { accent: '#F27DB6', deep: '#B84A8D', light: '#FFB8DD', rgb: '242,125,182', deepRgb: '206,86,154', bag0: '#FFE6F2', bag1: '#F9B7D9', bag2: '#C9B6FF', button: '#3A2142',
+          wash: 'radial-gradient(120% 70% at 0% 0%, rgba(255,214,234,0.75), rgba(255,214,234,0) 60%), radial-gradient(100% 70% at 100% 100%, rgba(214,204,255,0.6), rgba(214,204,255,0) 60%)' }
+      : { accent: '#55C47F', deep: '#2E8C55', light: '#A8EDBB', rgb: '85,196,127', deepRgb: '46,150,90', bag0: '#E6F9EA', bag1: '#A8E3BC', bag2: '#97D8D4', button: '#1D3A29',
+          wash: 'radial-gradient(120% 70% at 0% 0%, rgba(206,242,214,0.8), rgba(206,242,214,0) 60%), radial-gradient(100% 70% at 100% 100%, rgba(236,246,196,0.65), rgba(236,246,196,0) 60%)' };
+    const en = this.props.lang === 'en';
+    const flat = this.props.flat === true || this.props.flat === 'true';
+    const hideControls = this.props.hideControls === true || this.props.hideControls === 'true';
+    const base = { rainCandy: false, rainNature: false, path: false, house: false, ivy: false };
+    const tile = (kind, title, body) => ({ ...base, [kind]: true, title, body });
+    const tiles = candy
+      ? (en ? [
+          tile('rainCandy', 'Release candy rain', 'Turn on Release on your wrist, catch the candy'),
+          tile('path', 'Walk a candy path', 'Follow the candy beans to 3 candy springs'),
+          tile('house', 'Squeeze the candy house', 'It is soft and bounces right back')
+        ] : [
+          tile('rainCandy', '释放糖果雨', '打开手腕上的「释放」，伸手接糖果'),
+          tile('path', '走出糖果小路', '跟着糖豆走，找到 3 处糖果泉'),
+          tile('house', '捏一捏糖果屋', '软软的，捏一下会弹回来')
+        ])
+      : (en ? [
+          tile('rainNature', 'Release nature rain', 'Turn on Release on your wrist, catch what falls'),
+          tile('path', 'Walk a meadow', 'Follow the light to 3 secret gardens'),
+          tile('ivy', 'Grow ivy on the walls', 'Look at a wall and pinch')
+        ] : [
+          tile('rainNature', '释放自然之雨', '打开手腕上的「释放」，接住飘落的花草'),
+          tile('path', '走出一片草地', '跟着光点走，找到 3 处秘密花园'),
+          tile('ivy', '让藤蔓爬上墙', '看着墙面，捏一下手指')
+        ]);
+    const c = en
+      ? { kicker: 'Energy 100% · Explore freely', title: 'Now wander around the room', sub: 'No more pressing. Try these:', exit: 'To leave, tap Exit World on your left wrist', go: 'Explore', cheer: 'you did it!' }
+      : { kicker: '能量 100% · 自由探索', title: '接下来，在房间里随便逛逛', sub: '不用再按感官袋了，试试这些：', exit: '想离开时，点左手腕上的「退出世界」', go: '去探索', cheer: '你做到啦！' };
+    return {
+      tiles, c,
+      buttonStyle: 'background: linear-gradient(180deg, rgba(' + T.rgb + ',0.98), rgba(' + T.deepRgb + ',0.98)); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.6), 0 8px 22px rgba(' + T.deepRgb + ',0.4)' + (hideControls ? '; display: none' : ''),
+      hand: en ? { font: "'Caveat', cursive", size: 24 } : { font: "'ZCOOL KuaiLe', 'PingFang SC', cursive", size: 19 },
+      t: {
+        accent: T.accent, deep: T.deep, light: T.light,
+        card: 'background: linear-gradient(165deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.07) 42%, rgba(' + T.rgb + ',0.06) 100%), rgba(46,42,60,' + (flat ? '0.88' : '0.62') + '); box-shadow: inset 0 2px 1px rgba(255,255,255,0.35)' + (flat ? '' : ', 0 30px 80px rgba(16,10,30,0.45)'),
+        pill: 'background: rgba(' + T.rgb + ',0.20); color: ' + T.light,
+        well: 'background: linear-gradient(145deg, ' + T.bag0 + ', ' + T.bag1 + ' 55%, ' + T.bag2 + '); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.8)',
+        button: 'background: linear-gradient(180deg, rgba(' + T.rgb + ',0.98), rgba(' + T.deepRgb + ',0.98)); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.6), 0 8px 22px rgba(' + T.deepRgb + ',0.4)'
+      },
+      close: this.props.onClose ?? (() => {})
+    };
+  }
+}
+</script>
+</body>
+</html>

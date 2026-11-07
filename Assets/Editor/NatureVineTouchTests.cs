@@ -1,3 +1,4 @@
+#if MOODIUM_IVY_STUDIO
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -274,3 +275,5 @@ public sealed class NatureVineTouchTests
         Assert.That(Resources.Load<Material>("MoodiumNature/NatureIvyLeaf"), Is.Not.Null, "base leaf material (URP Lit, alpha clip, double-sided)");
     }
 }
+
+#endif

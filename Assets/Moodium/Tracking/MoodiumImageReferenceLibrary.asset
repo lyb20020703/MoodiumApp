@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: MoodiumImageReferenceLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5623836942311319500
+  m_GuidHigh: 7303275359075490436
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5287831675622760831
+      m_GuidHigh: 835127860538817156
+    m_SerializedTextureGuid:
+      m_GuidLow: 11838231609633717430
+      m_GuidHigh: 17777653174666720155
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: TestImageTracking
+    m_Texture: {fileID: 2800000, guid: 6504bcb6d8eda4499bf31a505fe9b6f6, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 9317081913915857183
+      m_GuidHigh: 5576645321976721831
+    m_SerializedTextureGuid:
+      m_GuidLow: 4923085011992622179
+      m_GuidHigh: 11257873392285610393
+    m_Size: {x: 0.05, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: CandyWorldPhoneTracking
+    m_Texture: {fileID: 2800000, guid: 1adeb4634fbc44529971811934003c9c, type: 3}
+  - m_SerializedGuid:
+      m_GuidLow: 5928468295476899727
+      m_GuidHigh: 12227152288891012784
+    m_SerializedTextureGuid:
+      m_GuidLow: 2602593073201955443
+      m_GuidHigh: 2978126425911887018
+    m_Size: {x: 0.05, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: NatureWorldPhoneTracking
+    m_Texture: {fileID: 2800000, guid: 67184273449c241eaa84aea0346e5429, type: 3}

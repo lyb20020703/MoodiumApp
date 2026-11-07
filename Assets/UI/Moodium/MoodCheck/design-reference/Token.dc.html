@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Moodi 表情与交互状态</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Sans+SC:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.well{position:relative;background:rgba(30,30,38,0.30);-webkit-backdrop-filter:blur(40px) saturate(170%);backdrop-filter:blur(40px) saturate(170%);box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),0 30px 70px rgba(35,25,15,0.22)}
+.well::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,255,255,0.8),rgba(255,255,255,0.1) 32%,rgba(255,255,255,0.04) 62%,rgba(255,255,255,0.42));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+</style>
+</helmet>
+<div style="position: relative; width: 1120px; height: 860px; overflow: hidden; background: #9C9186; font-family: -apple-system, 'SF Pro Text', Inter, 'PingFang SC', 'Noto Sans SC', sans-serif; color: rgba(255,255,255,0.96)">
+  <div aria-hidden="true" style="position: absolute; inset: 0; filter: blur(70px)">
+    <div style="position: absolute; left: -80px; top: -140px; width: 560px; height: 480px; border-radius: 50%; background: #F1E4CE"></div>
+    <div style="position: absolute; left: 720px; top: 520px; width: 480px; height: 400px; border-radius: 50%; background: #6E8A6C"></div>
+    <div style="position: absolute; left: 260px; top: 600px; width: 420px; height: 300px; border-radius: 50%; background: #A97F66"></div>
+  </div>
+
+  <div style="position: absolute; inset: 0; padding: 48px 60px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px">
+      <sc-for list="{{moods}}" as="m" hint-placeholder-count="5">
+        <div class="well" style="border-radius: 32px; height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px">
+          <div style="filter: drop-shadow(0 8px 12px rgba(40,20,90,0.22))">
+            <dc-import name="MoodiFace" mood="{{m.key}}" size="150" hint-size="150px,150px"></dc-import>
+          </div>
+          <span style="margin-top: 14px; font-size: 20px; font-weight: 600">{{m.name}}</span>
+          <span style="font-size: 13px; color: rgba(255,255,255,0.72)">{{m.desc}}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="flex: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+      <div class="well" style="border-radius: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px">
+        <div style="position: relative; width: 180px; height: 200px; display: flex; align-items: center; justify-content: center">
+          <div aria-hidden="true" style="position: absolute; left: 50%; top: 172px; width: 104px; height: 20px; margin-left: -52px; border-radius: 50%; background: rgba(24,14,48,0.34); filter: blur(7px)"></div>
+          <div style="filter: drop-shadow(0 6px 10px rgba(40,20,90,0.22))"><dc-import name="MoodiFace" mood="calm" size="170" hint-size="170px,170px"></dc-import></div>
+        </div>
+        <span style="margin-top: 14px; font-size: 18px; font-weight: 500">静止</span>
+        <span style="margin-top: 4px; font-size: 13px; color: rgba(255,255,255,0.72); text-align: center">贴着盘面，下方一团柔和投影</span>
+      </div>
+
+      <div class="well" style="border-radius: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px">
+        <div style="position: relative; width: 180px; height: 200px; display: flex; align-items: center; justify-content: center">
+          <div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 210px; height: 210px; margin: -105px 0 0 -105px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0) 70%)"></div>
+          <div aria-hidden="true" style="position: absolute; left: 50%; top: 172px; width: 104px; height: 20px; margin-left: -52px; border-radius: 50%; background: rgba(24,14,48,0.34); filter: blur(7px)"></div>
+          <div style="position: relative; filter: drop-shadow(0 6px 10px rgba(40,20,90,0.22)) brightness(1.06)"><dc-import name="MoodiFace" mood="calm" size="170" hint-size="170px,170px"></dc-import></div>
+        </div>
+        <span style="margin-top: 14px; font-size: 18px; font-weight: 500">注视</span>
+        <span style="margin-top: 4px; font-size: 13px; color: rgba(255,255,255,0.72); text-align: center">系统悬停高亮，身后泛起一圈柔光</span>
+      </div>
+
+      <div class="well" style="border-radius: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px">
+        <div style="position: relative; width: 180px; height: 200px; display: flex; align-items: center; justify-content: center">
+          <div aria-hidden="true" style="position: absolute; left: 50%; top: 182px; width: 128px; height: 22px; margin-left: -64px; border-radius: 50%; background: rgba(24,14,48,0.22); filter: blur(10px)"></div>
+          <div style="transform: translateY(-8px) scale(1.12); filter: drop-shadow(0 14px 18px rgba(40,20,90,0.28))"><dc-import name="MoodiFace" mood="happy" size="170" hint-size="170px,170px"></dc-import></div>
+        </div>
+        <span style="margin-top: 14px; font-size: 18px; font-weight: 500">拖动中</span>
+        <span style="margin-top: 4px; font-size: 13px; color: rgba(255,255,255,0.72); text-align: center">放大 112% 并抬起，投影变大变淡<br>表情随位置实时切换</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1120,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      moods: [
+        { key: 'happy', name: '开心', desc: '愉快、有活力' },
+        { key: 'calm', name: '平静', desc: '放松、安稳' },
+        { key: 'neutral', name: '一般', desc: '说不上好坏' },
+        { key: 'low', name: '低落', desc: '有点累、提不起劲' },
+        { key: 'tense', name: '烦躁', desc: '紧张、有压力' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

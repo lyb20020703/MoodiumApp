@@ -1,0 +1,56 @@
+{
+  "name": "MapleNature",
+  "source_ply": "5f4419be77ef025d2b6f57657ea38a12.ply (Hunyuan Gaussian PLY, 1,010,077 splats; same scene as 09e16ec7909b15990afb7ff9163db970.spz)",
+  "panorama": "Assets/Resources/MoodiumBubbleWorld/MapleNature/panorama.png",
+  "convention": "Unity = T @ raw (column vectors); det(T) = -1 includes the right-handed -> left-handed flip; u = 0.5 + atan2(x, z)/2pi",
+  "T_rows": [
+    [
+      0.4694510254065552,
+      -0.7358890662296876,
+      -0.4879375133645006
+    ],
+    [
+      0.00935358538464383,
+      -0.5484408039582841,
+      0.836137067109241
+    ],
+    [
+      0.8829089676660816,
+      0.3970893687284884,
+      0.2505828965784067
+    ]
+  ],
+  "row_transform_for_converter": [
+    0.4694510254065552,
+    0.00935358538464383,
+    0.8829089676660816,
+    -0.7358890662296876,
+    -0.5484408039582841,
+    0.3970893687284884,
+    -0.4879375133645006,
+    0.836137067109241,
+    0.2505828965784067
+  ],
+  "up_in_raw_frame": [
+    0.00935358538464383,
+    -0.5484408039582841,
+    0.836137067109241
+  ],
+  "registration": {
+    "method": "no source panorama was delivered: up levels the far horizon (std 3.41 deg over 36 sectors), starting from the local ground plane (16.7 deg steeper: the capture point stands on a slope); +z faces the big red maple (the snow mountain and sunset are behind); panorama rendered from the Gaussians"
+  },
+  "eye_height_above_ground_m": 0.313,
+  "exported_at": "2026-11-03T12:25:27.806763+00:00",
+  "source_sha256": "26bc08dddf27b049c06042de9d112d7f22b1afaa2dd69dbcead9ab7658c4cbaa",
+  "points_sha256": "49318fcf00539fb98a99106298ca78d2a7cf2da54514b874cc5f1086910a2c23",
+  "count": 500000,
+  "runtime_source_rotation": "identity",
+  "export_options": {
+    "footprint": "layer1",
+    "sampling": "eye",
+    "viewer_eye_height": 1.5,
+    "direction_balance": 0.5
+  },
+  "panorama_sha256": "ebbc58634f8eb3a363979576a5d5dc0a89b633e7f373e1dcca8cafb457626227",
+  "panorama_direct_hit_share": 0.6622
+}
